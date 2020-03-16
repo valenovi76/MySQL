@@ -1,0 +1,20 @@
+{% extends 'master.html' %}
+{% block content %}
+
+
+  <ul class="collapsible popout" data-collapsible="accordion">
+  {% for ticket in tickets %}
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>
+      <strong>{{ticket.Category}} - {{ticket.Title}} </strong>
+      </div>
+      <div class="collapsible-body">
+      <span>
+      {{ticket.Description}}
+      </span>
+      </div>
+    </li>
+   {% endfor %} 
+  </ul>
+
+{% endblock %}
