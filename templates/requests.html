@@ -3,14 +3,14 @@
 
 
   <ul class="collapsible popout" data-collapsible="accordion">
-  {% for ticket in tickets %}
+  {% for request in requests %}
     <li>
       <div class="collapsible-header"><i class="material-icons">add</i>
-      <strong>{{ticket.Category}} - {{ticket.Title}} </strong>
+      <strong>{{request.Requested_By}} - {{request.Shopping_Date}} </strong>
       </div>
       <div class="collapsible-body">
       <span>
-      {{ticket.Description}}
+      {{request.Food}}
       </span>
       </div>
     </li>
