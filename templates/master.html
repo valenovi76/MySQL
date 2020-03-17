@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>template page</h1>
+    <h1>Neighborhood Shopping Requests Rota</h1>
     {% block content %}
     
     {% endblock %}
@@ -20,15 +20,28 @@
 <script type="text/javascript">
    $(document).ready(function() {
             $('.collapsible').collapsible();
-        $('.datepicker').pickadate({
+            $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 15, // Creates a dropdown of 15 years to control year,
             today: 'Today',
             clear: 'Clear',
             close: 'Ok',
-            closeOnSelect: false // Close upon selecting a date,
+            closeOnSelect: false, // Close upon selecting a date,
+            disableDayFn: function(date) {
+            if(date.getDay() == 1) // getDay() returns a value from 0 to 6, 1 represents Monday
+            return false;
+            else
+            return true;
+        }
         });
+        $('select').formSelect({
+            isMultiple: true
         });
+    
+        });
+        document.getElementById("matfix").addEventListener("click", function(e) {
+	    e.stopPropagation();
+});
 </script> 
    
    
