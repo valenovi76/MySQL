@@ -13,9 +13,13 @@ app.config["MONGODB_NAME"] = os.environ.get("MONGODB_NAME" ,'mongodb://localhost
 
 mongo = PyMongo(app)
 @app.route('/')
-@app.route('/requests')
-def get_requests():
-    return render_template("requests.html", requests=mongo.db.c_requests.find())
+#@app.route('/requests')
+#def get_requests():
+   # return render_template("requests.html", requests=mongo.db.c_requests.find())
+
+@app.route('/new_requests')
+def get_new_requests():
+    return render_template("new_requests.html")
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
