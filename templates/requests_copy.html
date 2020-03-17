@@ -1,0 +1,20 @@
+{% extends 'master.html' %}
+{% block content %}
+
+
+  <ul class="collapsible popout" data-collapsible="accordion">
+  {% for request in requests %}
+    <li>
+      <div class="collapsible-header"><i class="material-icons">add</i>
+      <strong>{{request.Requested_By}} - {{request.Shopping_Date}} </strong>
+      </div>
+      <div class="collapsible-body">
+      <span>
+      {{request.Food}}
+      </span>
+      </div>
+    </li>
+   {% endfor %} 
+  </ul>
+
+{% endblock %}
