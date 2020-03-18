@@ -19,14 +19,15 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                    <i class="material-icons prefix">restaurant</i>
-                        <select multiple>
-                        <option value="" selected>Choose your option</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                        </select>
+                        <i class="material-icons prefix">restaurant</i>
+                        <select multiple id="Food" name="Food">
+                        <option value="" disabled selected>Choose Multiple Foods</option>
+                        {% for food in foods %}
+                        <option value="{{food.Food}}">{{food.Food}}-{{food.Fruit_Category}}</option>
+                        {% endfor %}
+                         </select>
                         <label>Food List</label>
+                       
                     </div>  
                 </div>
                 <div class="row">
@@ -38,7 +39,7 @@
                 </div>    
                 <div class="row">
                         <div class="row">
-                            <div class="input-field col s12" ">
+                            <div class="input-field col s12">
                             <i class="material-icons prefix">mode_edit</i>
                             <textarea id="Additional_Comments" name="Additional_Comments" class="materialize-textarea"></textarea>
                             <label for="textarea1">Additional Comments</label>

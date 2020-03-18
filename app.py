@@ -19,7 +19,7 @@ mongo = PyMongo(app)
 
 @app.route('/new_requests')
 def get_new_requests():
-    return render_template("new_requests.html")
+    return render_template("new_requests.html", foods=mongo.db.c_food.find())
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
