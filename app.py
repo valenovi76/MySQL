@@ -30,7 +30,7 @@ def add_new_requests():
 @app.route('/insert_requests', methods=['POST'])
 def insert_requests():
     requests = mongo.db.c_requests
-    requests.insert_one(request.form.to_dict())
+    requests.insert_one(request.form.to_dict())  #many
     return redirect(url_for('get_requests')) 
 
 if __name__ == '__main__':

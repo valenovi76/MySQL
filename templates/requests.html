@@ -5,12 +5,19 @@
   <ul class="collapsible popout" data-collapsible="accordion">
   {% for request in requests %}
     <li>
-      <div class="collapsible-header"><i class="material-icons">add</i>
+      <div class="collapsible-header">
+      <div class="col s3">
+      <a class="waves-effect waves-light btn btn.small"><i class="material-icons left">cloud</i>button</a>
+      </div>
+      <div class="col s3">
+      <a class="waves-effect waves-light btn btn.small"><i class="material-icons left">cloud</i>button</a>
+      </div>
+      <i class="material-icons">add</i>
       <strong>{{request.Requested_By}} - {{request.Shopping_Date}} </strong>
       </div>
       <div class="collapsible-body">
       <span>
-      {{request.Food}}
+      {{request.Food}}-{{request.Qty}}
       </span>
       </div>
     </li>
