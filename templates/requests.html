@@ -7,18 +7,17 @@
     <li>
       <div class="collapsible-header">
       <div class="col s3">
-      <a class="waves-effect waves-light btn btn.small"><i class="material-icons left">cloud</i>button</a>
-      </div>
-      <div class="col s3">
-      <a class="waves-effect waves-light btn btn.small"><i class="material-icons left">cloud</i>button</a>
-      </div>
       <i class="material-icons">add</i>
+      <a class="waves-effect waves-light btn btn_small grey darken-2">Edit</a>
+      <a class="waves-effect waves-light btn btn_small grey darken-2">Done</a>
+      </div>
       <strong>{{request.Requested_By}} - {{request.Shopping_Date}} </strong>
       </div>
       <div class="collapsible-body">
       <span>
       {{request.Food}}-{{request.Qty}}
       </span>
+      
       </div>
     </li>
    {% endfor %} 
