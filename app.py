@@ -19,21 +19,14 @@ mongo = PyMongo(app)
 
 @app.route('/get_requests')
 def get_requests():
-   return render_template("requests.html", requests=mongo.db.c_requests.find())
+    return render_template("requests.html", requests=mongo.db.c_requests.find())
 
 
-# @app.route('/new_requests')
-# def add_new_requests():
-#     return render_template("new_requests.html", foods=mongo.db.c_food.find())
+@app.route('/new_requests')
+def add_new_requests():
+    return render_template("new_requests.html", foods=mongo.db.c_food.find())
 
-
-# @app.route('/insert_requests', methods=['POST'])
-# def insert_requests():
- #    requests = mongo.db.c_requests
-  #   requests.insert_one(request.form.to_dict())
-   #  return redirect(url_for('get_requests'))
-
-
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
