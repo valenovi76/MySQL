@@ -1,26 +1,38 @@
 {% extends 'master.html' %}
 {% block content %}
+<h3>View Request</h3>
 
+        <div class="container">
+                <div class="row">
+                    <div class="input-field foodtable2 col s12" style="overflow: auto">
+                        <i class="material-icons prefix">restaurant</i>
+                            <table class="responsive-table">
+                                    <thead>
+                                    <tr>
+                                        <th>Shop By Date</th>
+                                        <th>Requested_By</th>
+                                        <th>Food</th>
+                                        <th>Food Category</th>
+                                        <th>Unit</th>
+                                        <th>Qty</th>
+                                    </tr>
+                                    </thead>
+                                    {% for request in requests %}
+                                    <tbody>
+                                    <tr>
+                                        <td value="{{request.Shop_By_Date}}">{{request.Shop_By_Date}}</td>
+                                        <td value="{{request.Requested_By}}">{{request.Requested_By}}</td>
+                                        <td value="{{request.Food}}">{{request.Food}}</td>
+                                        <td value="{{request.Food_Category}}">{{request.Food_Category}}</td>
+                                        <td value="{{request.Food_Unit}}">{{request.Unit}}</td>
+                                        <td value="{{request.Qty}}">{{request.Qty}}</td>
+                                    </tr>
+                                    {% endfor %}  
+                                    </tbody>
+                            </table>
+                    </div>
+                </div>           
+        </div>
 
-  <ul class="collapsible popout" data-collapsible="accordion">
-  {% for request in requests %}
-    <li>
-      <div class="collapsible-header">
-      <div class="col s3">
-      <i class="material-icons">add</i>
-      <a class="waves-effect waves-light btn btn_small grey darken-2">Edit</a>
-      <a class="waves-effect waves-light btn btn_small grey darken-2">Done</a>
-      </div>
-      <strong>{{request.Requested_By}} - {{request.Shopping_Date}} </strong>
-      </div>
-      <div class="collapsible-body">
-      <span>
-      {{request.Food}}-{{request.Qty}}
-      </span>
-      
-      </div>
-    </li>
-   {% endfor %} 
-  </ul>
 
 {% endblock %}
