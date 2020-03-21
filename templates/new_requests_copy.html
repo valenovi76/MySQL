@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="foodtable col s12" style="overflow: auto">
                         <i class="material-icons prefix">restaurant</i>
                             <table class="responsive-table">
                                     <thead>
@@ -25,6 +25,7 @@
                                         <th>Food Category</th>
                                         <th>Unit</th>
                                         <th>Qty</th>
+                                        <th>Submit or Update</th>
                                     </tr>
                                     </thead>
                                     {% for food in foods %}
@@ -33,7 +34,12 @@
                                         <td value="{{food.Food}}">{{food.Food}}</td>
                                         <td value="{{food.Food}}">{{food.Food_Category}}</td>
                                         <td value="{{food.Food}}">{{food.Unit}}</td>
-                                        <td value="{{food.Food}}">{{food.Qty}}</td>       
+                                        <td value="{{food.Food}}">{{food.Qty}}</td>
+                                        <td>
+                                            
+                                        <a class="btn-floating btn green accent-4"><i class="material-icons right">done</i>button</a>
+                                        <a class="btn-floating btn red darken-1"><i class="material-icons right">create</i>button</a>    
+                                        </td>    
                                     </tr>
                                     {% endfor %}  
                                     </tbody>
