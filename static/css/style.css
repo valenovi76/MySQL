@@ -1,11 +1,10 @@
 .btn_small {
-    height: 24px;
+    height: 50px;
     width: 30px;
     line-height: 24px;
     margin: 5px 5px 5px 5px;
     padding: 0.5em 0.5em 0.5em 0.5em;
 }
-
 .collapsible-body {
     margin-top: 5px;
 }
