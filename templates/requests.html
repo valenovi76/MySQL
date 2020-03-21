@@ -1,12 +1,14 @@
 {% extends 'master.html' %}
 {% block content %}
-<h3>View Request</h3>
+<h4>Filter requests by shopping date</h4>
+<input type="text" id="request_filter" onkeyup="myFunction()" placeholder="Search by shopping date..">
 
         <div class="container">
                 <div class="row">
-                    <div class="input-field foodtable2 col s12" style="overflow: auto">
-                        <i class="material-icons prefix">restaurant</i>
-                            <table class="responsive-table">
+                 <i class="material-icons prefix">restaurant</i>
+                    <div class="input-field requeststbl col s12" style="overflow: auto">
+                       
+                            <table class="responsive-table" id="requeststbl">
                                     <thead>
                                     <tr>
                                         <th>Shop By Date</th>
@@ -34,5 +36,8 @@
                 </div>           
         </div>
 
-
+<button class="btn waves-effect waves-light" type="submit" name="action">Email list
+    <i class="material-icons right">send</i>
+  </button>
 {% endblock %}
+
