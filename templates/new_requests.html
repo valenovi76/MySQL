@@ -2,7 +2,7 @@
 {% block content %}
 <h3>Submit New Requests</h3>
 <div class="row">
-   <form action="{{ url_for('insert_requests') }}" method="POST"  class="col s12">
+   <form action="{{ url_for('insert_login') }}" method="POST"  class="col s12">
       <div class="container">
          <div class="row">
             <div class="input-field col s6">
@@ -17,62 +17,18 @@
             </div>
          </div>
          <div class="row">
-            <div class="input-field foodtable col s12" style="overflow-x: auto;">
-               <i class="material-icons prefix">restaurant</i>
-               <table class="responsive-table">
-                  <thead>
-                     <tr>
-                        <th>Food</th>
-                        <th>Food Category</th>
-                        <th>Unit</th>
-                        <th>Qty</th>
-                        <th>Submit</th>
-                     </tr>
-                  </thead>
-                  {% for food in foods %}
-                  <tbody>
-                     <tr>
-                        <td value="{{food.Food}}">{{food.Food}}</td>
-                        <td value="{{food.Food}}">{{food.Food_Category}}</td>
-                        <td value="{{food.Food}}">{{food.Unit}}</td>
-                        <td value="{{food.Food}}">{{food.Qty}}</td>
-                        <td>
-                           <div class="input-field col s6 multiple fixed">
-                              <input id="{{food._id}}" type="checkbox" />
-                              <label for="{{food._id}}"></label>
-                           </div>
-                        </td>
-                     </tr>
-                     {% endfor %}  
-                  </tbody>
-               </table>
-            </div>
-         </div>
-
-         <div class="row">
             <div class="input-field col s12">
-               <i class="material-icons prefix">mode_edit</i>
-               <textarea id="Additional_Comments" name="Additional_Comments" class="materialize-textarea"></textarea>
-               <label for="textarea1">Additional Comments</label>
-            </div>
-         <div class="row">
-            <div class="input-field col s6" id="matfix">
-               <i class="material-icons prefix">assignment</i>
-               <input id="Shopping_Date" name="Shopping_Date" type="text" class="datepicker">
-               <label for="icon_prefix">Shopping By Date</label>
-            </div>
-            <div class="input-field col s6">
-               <i class="material-icons prefix">mode_edit</i>
-               <textarea id="Host_Name" name="Host_Name" class="materialize-textarea">
-               
-               </textarea>
-               <label for="textarea1">Additional Comments</label>
-            </div>
-            
+                            <i class="material-icons prefix">restaurant</i>
+                            <select id="Food" name="Food">
+                            <option value="" disabled selected>Choose Multiple Foods</option>
+                            {% for food in foods %}
+                            <option value="{{food.Food}}">{{food.Food}} - {{food.Food_Category}} - quantity {{food.Unit}} - {{food.Qty}}</option>
+                            {% endfor %}
+                            </select>
+                            <label>Food List</label>
+                </div>
          </div>
-            
-         </div>
-         <button class="btn waves-effect waves-light" type="submit" name="action">Submit your shopping list
+         <button class="btn waves-effect waves-light" type="submit" name="action">Submit your selection
          <i class="material-icons right">send</i>
          </button>
       </div>

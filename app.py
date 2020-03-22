@@ -18,6 +18,11 @@ mongo = PyMongo(app)
 @app.route('/')
 
 
+@app.route('/login')
+def get_login():
+    return render_template("login.html", requests=mongo.db.c_user.find())
+
+
 @app.route('/get_requests')
 def get_requests():
     return render_template("requests.html", requests=mongo.db.c_requests.find())
@@ -26,22 +31,20 @@ def get_requests():
 @app.route('/new_requests')
 def add_new_requests():
     return render_template("new_requests.html", foods=mongo.db.c_food.find())
-# Function to display hostname and 
-# IP address 
-
-
-def get_Host_name_IP(): 
-    host_name = socket.gethostname() 
-#    host_ip = socket.gethostbyname(host_name) 
-    return host_name
-#This code is conributed by "Sharad_Bhardwaj". 
 
 
 @app.route('/insert_requests', methods=['POST'])
 def insert_requests():
     requests = mongo.db.c_requests
     requests.insert_one(request.form.to_dict())
-    return redirect(url_for('get_requests'))
+    return redirect(url_for('add_new_requests'))
+
+
+@app.route('/insert_login', methods=['POST'])
+def insert_login():
+    logins = mongo.db.c_user
+    logins.insert_one(request.form.to_dict())
+    return redirect(url_for('add_new_requests'))
 
 
 @app.route('/my_requests')
