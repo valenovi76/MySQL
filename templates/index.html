@@ -1,0 +1,41 @@
+{% extends 'master.html' %}
+{% block content %}
+<h3>Submit New Requests</h3>
+<div class="row">
+   <form action="{{ url_for('insert_login') }}" method="POST"  class="col s12">
+      <div class="container">
+         <div class="row">
+            <div class="input-field col s6">
+               <i class="material-icons prefix">face</i>
+               <input id="username" name="username" type="text" class="validate">
+               <label for="username">Requested by (Name and Surname)</label>
+            </div>
+            <div class="input-field col s6">
+               <i class="material-icons prefix">phone</i>
+               <input id="Phone" name="Phone" type="text" class="validate">
+               <label for="Phone">Phone number</label>
+            </div>
+         </div> 
+         <div class="row">
+                <div class="input-field col s6"> 
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit your selection
+                <i class="material-icons right">send</i>
+                </button>
+                </div>
+        </div>
+      </div>
+    </form>    
+def get_hostname():
+   <form action="{{ url_for('get_hostname') }}" method="POST"  class="col s12">
+      <div class="container">
+         <div class="row">
+            <div class="input-field col s6">
+               <i class="material-icons prefix">face</i>
+               <input id="hostname" name="hostname" type="text" class="validate">
+               <label for="hostname">{{%hostname%}}</label>
+            </div>
+        </div>
+      </div>
+    </form>   
+</div>
+{% endblock %}

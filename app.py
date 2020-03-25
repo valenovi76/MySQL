@@ -1,34 +1,22 @@
 import os
-from flask import Flask, request, render_template, redirect, url_for
+import socket
+from flask import Flask, request, render_template, redirect, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
 if path.exists("env.py"):
     import env
-import socket
-if socket.gethostname().find('.')>=0:
-    name=socket.gethostname()
-else:
-    name=socket.gethostbyaddr(socket.gethostname())[0]
-    print(socket.gethostname())
+
 
 
 app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["MONGODB_NAME"] = os.environ.get("MONGODB_NAME" ,'mongodb://localhost') 
+app.secret_key = "randomstring123"
+messages = []
 
 
 mongo = PyMongo(app)
-
-
-
-@app.route('/')
-
-
-@app.route('/login')
-def get_login():
-    return render_template("login.html", requests=mongo.db.c_user.find())
-
 
 @app.route('/get_requests')
 def get_requests():
@@ -53,15 +41,19 @@ def insert_login():
     logins.insert_one(request.form.to_dict())
     return redirect(url_for('add_new_requests'))
 
+@app.route('/hostname')
+def get_hostname():
+    hostname = socket.gethostname()
+    return hostname
 
-@app.route('/my_requests')
-def my_requests():
-    return render_template("my_requests.html", requests=mongo.db.c_requests.find(host_name))   
+#@app.route('/my_requests')
+#def my_requests():
+#return render_template("my_requests.html", requests=mongo.db.c_requests.find(hostname))   
 
 
-@app.route('/udate_requests')
-def update_requests():
-    return render_template("update_requests.html", requests=mongo.db.c_requests.find(host_name))
+#@app.route('/udate_requests')
+#def update_requests():
+#return render_template("update_requests.html", requests=mongo.db.c_requests.find(host_name))
 
 
 if __name__ == '__main__':
