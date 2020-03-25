@@ -1,18 +1,25 @@
 import os
-from os import path
-if path.exists("env.py"):
-    import env
 from flask import Flask, request, render_template, redirect, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from os import path
+if path.exists("env.py"):
+    import env
 import socket
+if socket.gethostname().find('.')>=0:
+    name=socket.gethostname()
+else:
+    name=socket.gethostbyaddr(socket.gethostname())[0]
+    print(socket.gethostname())
 
 
 app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["MONGODB_NAME"] = os.environ.get("MONGODB_NAME" ,'mongodb://localhost') 
 
+
 mongo = PyMongo(app)
+
 
 
 @app.route('/')
@@ -55,6 +62,7 @@ def my_requests():
 @app.route('/udate_requests')
 def update_requests():
     return render_template("update_requests.html", requests=mongo.db.c_requests.find(host_name))
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

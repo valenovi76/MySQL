@@ -2,13 +2,13 @@
 {% block content %}
 <h3>Submit New Requests</h3>
 <div class="row">
-   <form action="{{ url_for('insert_login') }}" method="POST"  class="col s12">
+   <form action="{{ url_for('insert_requests') }}" method="POST"  class="col s12">
       <div class="container">
          <div class="row">
             <div class="input-field col s6">
                <i class="material-icons prefix">face</i>
                <input id="Requested_By" name="Requested_By" type="text" class="validate">
-               <label for="first_name">Requested by (Name and Surname)</label>
+               <label for="first_name">{{session.username}}</label>
             </div>
             <div class="input-field col s6">
                <i class="material-icons prefix">phone</i>
