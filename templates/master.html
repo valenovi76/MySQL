@@ -13,7 +13,7 @@
 <body>
 <nav>
     <div class="nav-wrapper">
-      <a href="{{url_for('index')}}" class="brand-logo">Covid-19 Shopping Rota</a>
+      <a href="{{url_for('index')}}" brand-logo>Covid-19 Shopping Rota</a>
       <a ></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -36,9 +36,9 @@
    $(document).ready(function() {
             $('.collapsible').collapsible();
             $('select').material_select();
-        });
-
-        $('.datepicker').pickadate({
+       
+            $('.date').getElementById.value = new Date().toUTCString();
+            $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 15, // Creates a dropdown of 15 years to control year,
             today: 'Today',
@@ -46,8 +46,6 @@
             close: 'Ok',
             closeOnSelect: false // Close upon selecting a date,
         });
-        document.getElementById("matfix").addEventListener("click", function(e) {
-        e.stopPropagation();
  
         $('.fixed-action-btn').floatingActionButton({
             direction: 'left'
@@ -80,6 +78,7 @@ function myFunction() {
 }
 
 </script> 
+
 <footer class="page-footer">
           <div class="container">
             <div class="row">
