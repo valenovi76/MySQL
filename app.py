@@ -32,8 +32,12 @@ def index():
 
 @app.route('/new_requests')
 def add_new_requests():
-    return render_template("new_requests.html", foods=mongo.db.c_food.find())
+    return render_template("new_requests2.html", foods=mongo.db.c_food.find())
 
+
+def get_user():
+    users = mongo.db.c_users
+    users.find()
 
 @app.route('/insert_requests', methods=['POST'])
 def insert_requests():

@@ -1,0 +1,59 @@
+{% extends 'master.html' %}
+{% block content %}
+<h3>Submit New Requests</h3>
+<div class="row">
+   <form  class="col s12">
+      <div class="container">
+         <div class="row">
+            <div class="input-field col s6">
+               <i class="material-icons prefix">face</i>
+               <input id="Requested_By" name="Requested_By" type="text" class="validate">
+               <label for="first_name">Requested by (Name and Surname)</label>
+            </div>
+            <div class="input-field col s6">
+               <i class="material-icons prefix">phone</i>
+               <input id="Requestor_Phone_Number" name ="Requestor_Phone_Number" type="tel" class="validate">
+               <label for="icon_telephone">Telephone</label>
+            </div>
+         </div>
+         
+            
+               <i class="material-icons prefix">restaurant</i>
+               {% for row in rows %}
+                        <div class="row">
+                  {% for food in foods %}
+                  <div class="col-md-3">{{food}}</div>
+
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+                </div>
+                    
+         </div>
+
+
+
+
+
+         <div class="row">
+            <div class="input-field col s6" id="matfix">
+               <i class="material-icons prefix">assignment</i>
+               <input id="Shopping_Date" name="Shopping_Date" type="text" class="datepicker">
+               <label for="icon_prefix">Shopping By Date</label>
+            </div>
+         </div>
+         <div class="row">
+            <div class="input-field col s12">
+               <i class="material-icons prefix">mode_edit</i>
+               <textarea id="Additional_Comments" name="Additional_Comments" class="materialize-textarea"></textarea>
+               <label for="textarea1">Additional Comments</label>
+            </div>
+         </div>
+         <button class="btn waves-effect waves-light" type="submit" name="action">Submit your shopping list
+         <i class="material-icons right">send</i>
+         </button>
+      </div>
+   </form>
+</div>
+{% endblock %} 
