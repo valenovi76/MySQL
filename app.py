@@ -41,7 +41,7 @@ def insert_login():
     logins.insert_one(request.form.to_dict())
     return redirect(url_for('add_new_requests'))
 
-@app.route('/hostname')
+
 def get_hostname():
     hostname = socket.gethostname()
     return hostname
