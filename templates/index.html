@@ -9,7 +9,7 @@
                <i class="material-icons prefix">face</i>
                     <select id="member" name="member">
                             <option value="" disabled selected>Please select your name</option>
-                            {% for member in memebers %}
+                            {% for member in members %}
                             <option value="{{member.username}}">{{member.username}}</option>
                             {% endfor %}
                             </select>

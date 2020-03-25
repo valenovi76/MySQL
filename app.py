@@ -25,25 +25,25 @@ def get_requests():
                            requests=mongo.db.c_requests.find())
 
 
-@app.route('/index.html')
-def index():
-    return render_template("index.html", memebers=mongo.db.c_members.find())
+# @app.route('/index.html')
+
 
 
 @app.route('/new_requests')
 def add_new_requests():
-    return render_template("new_requests2.html", foods=mongo.db.c_food.find())
+    return render_template("new_requests.html", foods=mongo.db.c_food.find(),members=mongo.db.c_members.find())
 
 
+@app.route('/get_users')
 def get_user():
-    users = mongo.db.c_users
-    users.find()
+    users = mongo.db.c_users.find()
+
 
 @app.route('/insert_requests', methods=['POST'])
 def insert_requests():
     requests = mongo.db.c_requests
-    requests.insert_one(request.form.to_dict())
-    return redirect(url_for('add_new_requests'))
+    requests.insert_one(request.form.to_dict(flat=False))
+    return redirect(url_for('get_requests'))
 
 
 @app.route('/insert_login', methods=['POST'])

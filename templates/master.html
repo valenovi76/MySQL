@@ -13,18 +13,18 @@
 <body>
 <nav>
     <div class="nav-wrapper">
-      <a href="{{url_for('index')}}" brand-logo>Covid-19 Shopping Rota</a>
+      <a href="{{url_for('add_new_requests')}}" brand-logo>Covid-19 Shopping Rota</a>
       <a ></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{url_for('index')}}">Home</a></li>
+                    <li><a href="{{url_for('add_new_requests')}}">Home</a></li>
                     <li><a href="{{url_for('add_new_requests')}}">New Task</a></li> 
                 </ul>
     </div>
   </nav>
         
 <div class="container">
-    <h1 style="color:#6a1b9a">Neighborhood Shopping Requests Rota</h1>
+    <h3 style="color:#6a1b9a">Neighborhood Shopping Requests Rota</h3>
     {% block content %}
     
     {% endblock %}
@@ -36,8 +36,6 @@
    $(document).ready(function() {
             $('.collapsible').collapsible();
             $('select').material_select();
-       
-            $('.date').getElementById.value = new Date().toUTCString();
             $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 15, // Creates a dropdown of 15 years to control year,
@@ -46,11 +44,6 @@
             close: 'Ok',
             closeOnSelect: false // Close upon selecting a date,
         });
- 
-        $('.fixed-action-btn').floatingActionButton({
-            direction: 'left'
-        });
-
         object.addEventListener("click", myScript);
 });
 
