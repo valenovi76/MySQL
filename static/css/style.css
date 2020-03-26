@@ -1,8 +1,17 @@
+.navbar{background-image: url("img/market.jpg");
+}
+
 .panel-body{
     height: 270px;
 }
 
-
+.input-sm {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
 .fixed [type="checkbox"] + label, .fixed [type="radio"] + label {
   pointer-events: auto;
 }
