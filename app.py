@@ -19,23 +19,24 @@ mongo = PyMongo(app)
 @app.route('/')
 
 
-@app.route('/get_requests')
-def get_requests():
+@app.route('/requests')
+def requests():
     return render_template("requests.html",
                            requests=mongo.db.c_requests.find())
 
 
-# @app.route('/index.html')
-
-
-
 @app.route('/new_requests')
-def add_new_requests():
+def new_requests():
     return render_template("new_requests.html", foods=mongo.db.c_food.find(),members=mongo.db.c_members.find())
 
 
-@app.route('/get_users')
-def get_user():
+#@app.route('/new_requests')
+#def add_new_requests():
+#    return render_template("new_requests.html", foods=mongo.db.c_food.find(),members=mongo.db.c_members.find())
+
+
+@app.route('/users')
+def users():
     users = mongo.db.c_users.find()
 
 
