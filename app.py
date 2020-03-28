@@ -16,9 +16,15 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-@app.route('/index')
+@app.route('/new_requests')
 def index():
-    return render_template("index.html",
+    return render_template("index.html", foods=mongo.db.c_food.find(),
+                           members=mongo.db.c_members.find(), shops=mongo.db.c_shops.find())
+
+
+@app.route('/member_reg')
+def member_reg():
+    return render_template("member_reg.html",
                            members=mongo.db.c_members.find())
 
 
@@ -28,16 +34,10 @@ def requests():
                            requests=mongo.db.c_requests.find())
 
 
-@app.route('/new_requests')
-def new_requests():
-    return render_template("new_requests.html", foods=mongo.db.c_food.find(),
-                           members=mongo.db.c_members.find())
-
-
 @app.route('/insert_requests', methods=['POST'])
 def insert_requests():
     requests = mongo.db.c_requests
-    requests.insert_one(request.form.to_dict(flat=False))
+    requests.insert_one(request.form.to_dict())
     return redirect(url_for('requests'))
 
 

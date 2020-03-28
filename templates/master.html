@@ -5,9 +5,8 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    
+    <link href="{{url_for('static', filename='css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -18,25 +17,23 @@
 
   <!-- Navigation -->
 <!-- Dropdown Structure -->
-<ul id="dropdown1" class="dropdown-content">
-  <li><a href="{{url_for('new_requests')}}">New Requests</a></li>
-  <li><a href="{{url_for('new_requests')}}">My Cart</a></li>
-  <li class="divider"></li>
-  <li><a href="{{url_for('index')}}">three</a></li>
-</ul>
-<nav>
-  <div class="nav-wrapper">
-    <a href="#!" class="brand-logo">Logo</a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-    </ul>
-  </div>
-</nav>
+
+  <nav>
+    <div class="nav-wrapper orange darken-3">
+      <a href="{{url_for('index')}}" class="brand-logo">Home</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{{url_for('member_reg')}}">Become a member</a></li>
+        <li><a href="badges.html">My cart</a></li>
+        <li><a href="collapsible.html">All requests</a></li>
+      </ul>
+    </div>
+  </nav>
+
 {% block content %}
     
+
+
+
 {% endblock %}
 
 
@@ -44,7 +41,7 @@
 
 </body>
 <!--Footer-->
-<footer class="page-footer">
+<footer class="page-footer orange darken-3">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -79,15 +76,9 @@
             });
             $('select').formSelect();
             $('.collapsible').collapsible();
-            $('.datepicker').pickadate({
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15, // Creates a dropdown of 15 years to control year,
-            today: 'Today',
-            clear: 'Clear',
-            close: 'Ok',
-            closeOnSelect: false // Close upon selecting a date,
-        });
+            $('.datepicker').datepicker();
         object.addEventListener("click", myScript);
+
 });
 
 

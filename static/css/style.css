@@ -1,19 +1,9 @@
-.navbar{background-image: url("img/market.jpg");
+.siteform{background-color: #e0e0e0;
+          border-radius: 10px;
 }
 
-.panel-body{
-    height: 270px;
-}
-
-.input-sm {
-    height: 30px;
-    padding: 5px 10px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: 3px;
-}
-.fixed [type="checkbox"] + label, .fixed [type="radio"] + label {
-  pointer-events: auto;
+body{
+    background-color: yellow;
 }
 
 #request_filter {
