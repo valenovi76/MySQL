@@ -2,9 +2,9 @@
 
 <div class="container">
     <div class="row">
-        <form action="/insert_requests" method="POST" class="new-requests col s12 m6 offset-m3" name="siteform" >
+        <form action="{{ url_for('update_request', request_id=request._id) }}" method="POST" class="update-requests col s12 m6 offset-m3" name="siteform" >
            <p>
-           <h6>Please Use the below form to Submit New Requests</h6>
+           <h6>Please Use the below form to Update your requests</h6>
            </p>
             <div class="row">    
                 <div class="input-field">
@@ -12,7 +12,11 @@
                     <select id="requested_by" name="requested_by">
                         <option value="" disabled selected>Please select your name</option>
                         {% for member in members %}
+                        {% if member.username == request.requested_by %}
+                        <option value="{{member.username}}" selected>{{member.username}}</option>
+                        {% else %}
                         <option value="{{member.username}}">{{member.username}}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
                     <label>Requestor</label>
@@ -21,7 +25,7 @@
             <div class="row">    
                 <div class="input-field">
                     <i class="material-icons prefix">phone</i>
-                    <input id="phone" name="phone" type="tel" class="validate">
+                    <input id="phone" name="phone" type="tel" class="validate" value="{{request.phone}}">
                     <label for="icon_telephone">Telephone</label>
                 </div>
             </div>
@@ -31,7 +35,11 @@
                     <select id="shop" name="shop">
                         <option value="" disabled selected>Please select the shop for your purchases</option>
                         {% for shop in shops %}
+                        {% if shop.shop == request.shop %}
+                        <option value="{{shop.shop}}" selected>{{shop.shop}}</option>
+                        {% else %}
                         <option value="{{shop.shop}}">{{shop.shop}}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
                     <label>Shop</label>
@@ -40,20 +48,24 @@
             <div class="row">
                 <div class="input-field">
                     <i class="material-icons prefix">account_circle</i>
-                    <textarea id="food" name="food" class="materialize-textarea"></textarea>
+                    <textarea id="food" name="food" class="materialize-textarea" value="{{request.food}}"></textarea>
                     <label for="textarea1">Please enter the food and the amount you would to order</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field">
                     <i class="material-icons prefix">account_circle</i>
-                    <input type="text" class="datepicker" id="date" name="date">
+                    <input type="text" class="datepicker" id="date" name="date" value="{{request.date}}">
                     <label for="textarea1">Please pick the date for the order</label>
                 </div>
-                <div class="input-field" style="display: none;">
-                       <select id="status" name="status" value="open" style="display: none;">
+                <div class="input-field">
+                       <select id="status" name="status" value="open">
                         {% for status in status %}
+                        {% if status.status == request.status %}
+                        <option value="{{status.status}}" selected>{{status.status}}</option>
+                        {% else %}
                         <option value="{{status.status}}">{{status.status}}</option>
+                        {% endif%}
                         {% endfor %}
                     </select>
                 </div>
