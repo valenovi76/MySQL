@@ -1,9 +1,18 @@
-.siteform{background-color: #e0e0e0;
-          border-radius: 10px;
+body{
+    background-image:url('../img/variety_veg.jpg') ;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column
+    
 }
 
-body{
-    background-color: yellow;
+main {
+    flex: 1 0 auto;
+  }
+
+form{background-color: white;
+    border-radius: 10px;
 }
 
 #request_filter {

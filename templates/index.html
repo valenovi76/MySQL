@@ -1,25 +1,27 @@
 <!DOCTYPE html> {% extends 'master.html' %} {% block content %}
 
 <div class="container">
-<h6>Please Use the below form to Submit New Requests</h6>
     <div class="row">
         <form action="/insert_requests" method="POST" class="new-requests col s12 m6 offset-m3" name="siteform" >
+           <p>
+           <h6>Please Use the below form to Submit New Requests</h6>
+           </p>
             <div class="row">    
                 <div class="input-field">
                     <i class="material-icons prefix">account_circle</i>
-                    <select id="Requested_By" name="Requested_By">
+                    <select id="requested_by" name="requested_by">
                         <option value="" disabled selected>Please select your name</option>
                         {% for member in members %}
                         <option value="{{member.username}}">{{member.username}}</option>
                         {% endfor %}
                     </select>
-                    <label>Username</label>
+                    <label>Requestor</label>
                 </div>
             </div>    
             <div class="row">    
                 <div class="input-field">
                     <i class="material-icons prefix">phone</i>
-                    <input id="icon_telephone" type="tel" class="validate">
+                    <input id="phone" name="phone" type="tel" class="validate">
                     <label for="icon_telephone">Telephone</label>
                 </div>
             </div>
@@ -38,14 +40,14 @@
             <div class="row">
                 <div class="input-field">
                     <i class="material-icons prefix">account_circle</i>
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <textarea id="food" name="food" class="materialize-textarea"></textarea>
                     <label for="textarea1">Please enter the food and the amount you would to order</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field">
                     <i class="material-icons prefix">account_circle</i>
-                    <input type="text" class="datepicker">
+                    <input type="text" class="datepicker" id="date" name="date">
                     <label for="textarea1">Please pick the date for the order</label>
                 </div>
             </div>
