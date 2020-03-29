@@ -10,17 +10,17 @@
     <title>Shopping rota</title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-      
+
+     <!--Font Awesome (added because you use icons in your prepend/append)-->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+ 
       <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </head>
 
-<body id="page-top">
+<body>
 
   <!-- Navigation -->
 <!-- Dropdown Structure -->
@@ -32,10 +32,7 @@
             <a class="nav-link" href="{{url_for('member_reg')}}">Become a member</a>
           </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{url_for('requests')}}">My cart</a>
-          </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{url_for('requests')}}">All requests</a>
+            <a class="nav-link" href="{{url_for('requests')}}">Requests See/Update</a>
           </li>
         </ul>
       </div>
@@ -53,7 +50,7 @@
 {% endblock %}
 
 <!--Footer-->
-<footer class="py-5 bg-dark">
+<footer class="py-5 bg-dark fixed">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
     </div>
@@ -61,27 +58,43 @@
   </footer>
 
 <!-- JS-->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+
 <script type="text/javascript">
    $(document).ready(function() {
             $('.dropdown-trigger').dropdown({
             hover: false    
             });
-            $('select').formSelect();
+            $('.mdb-select').materialSelect();
             $('.collapsible').collapsible();
-            $('.datepicker').datepicker();
         object.addEventListener("click", myScript);
 
 });
 
+$(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
 
-function myFunction() {
+
+
+function myFunctiondate() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("request_filter");
+  input = document.getElementById("request_filter_date");
   filter = input.value.toUpperCase();
   table = document.getElementById("requeststbl");
   tr = table.getElementsByTagName("tr");
@@ -99,6 +112,7 @@ function myFunction() {
     }
   }
 }
+
 
 </script> 
 

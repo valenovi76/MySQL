@@ -45,8 +45,8 @@ def insert_requests():
 
 @app.route('/insert_login', methods=['POST'])
 def insert_login():
-    logins = mongo.db.c_user
-    logins.insert_one(request.form.to_dict())
+    usernames = mongo.db.c_members
+    usernames.insert_one(request.form.to_dict())
     return redirect(url_for('add_new_requests'))
 
 
@@ -65,13 +65,13 @@ def edit_request(request_id):
 def update_request(request_id):
     requests = mongo.db.c_requests
     requests.update({"_id": ObjectId(request_id)},
-                   {'requested_by': request.form.get('requested_by'),
+                    {'requested_by': request.form.get('requested_by'),
                     'phone': request.form.get('phone'),
-                    'shop': request.form.get('shop'),
-                    'date': request.form.get('date'),
-                    'food': request.form.get('food'),
-                    'status': request.form.get('status')
-                    })
+                     'shop': request.form.get('shop'),
+                     'shopping_date': request.form.get('shopping_date'),
+                     'food': request.form.get('food'),
+                     'status': request.form.get('status')
+                     })
     return redirect(url_for('requests'))
 
 

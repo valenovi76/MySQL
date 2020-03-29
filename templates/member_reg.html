@@ -2,30 +2,50 @@
 {% extends 'master.html' %}
 {% block content %}
 <h3>Neighbrhood Shopping Rota</h3>
-<div class="row">
-   <form action="{{ url_for('insert_login') }}" method="POST"  class="col s12">
-      <div class="container">
-         <div class="row">
-                    <div class="input-field col s6">
-          <input placeholder="Add your name if you want to become a member" id="member" type="text" class="validate" name="member">
-          <label for="first_name">Name and Surname</label>
-        </div>
-        <div class="input-field col s6">
-            <i class="material-icons prefix">phone</i>
-            <input id="icon_telephone" type="tel" class="validate">
-            <label for="icon_telephone">Telephone</label>
-            </div>
-        <div class="row"> 
-        <div class="col">
-        </div>   
-            <div class="input-field col s6"> 
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit your selection
-                        <i class="material-icons right">send</i>
-                        </button>
-            </div>
-            </div>
-         </div>
-      </div>       
-    </form>   
-</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class= "page_title">
+    <h3> Please fill in the below form if you want to become a memeber</h3>
+    </div>
+   <div class="col-md-6 col-sm-6 col-xs-12">
+    <form action="{{ url_for('insert_login') }}" method="POST" >
+     <div class="form-group ">
+      <label class="control-label requiredField" for="new_memeber_name">
+       Name and Surname
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <div class="input-group">
+       <div class="input-group-addon">
+        <i class="fa ">
+        </i>
+       </div>
+       <input class="form-control" id="username" name="username" type="text"/>
+       <div class="input-group-addon">
+        <i class="fa ">
+        </i>
+       </div>
+      </div>
+      <span class="help-block" id="hint_new_memeber_name">
+       Please enter your name and surname
+      </span>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="tel">
+       Telephone #
+      </label>
+      <input class="form-control" id="tel" name="tel" type="tel"/>
+     </div>
+     <div class="form-group">
+      <div>
+
+       <button  type="submit" class="btn btn-primary btn-lg">Submit</button>
+
+      </div>
+     </div>
+    </form>
+   </div>
+  </div>
+ </div>
 {% endblock %}

@@ -1,81 +1,95 @@
 <!DOCTYPE html> {% extends 'master.html' %} {% block content %}
 
-<div class="container">
-    <div class="row">
-    <div class="col s6">
-    <h4> A Neighbrhood Shopping Rota</h4>
-    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
-     ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-     deserunt mollit anim id est laborum.
-    </div>
-    <div class="col s6">
-        <form action="/insert_requests" method="POST" class="new-requests" name="siteform" >
-           <p>
-           <h6>Please Use the below form to Submit New Requests</h6>
-           </p>
-            <div class="form-group">    
-                 <label for="exampleFormControlSelect1">Please select your name</label>
-                    <select class="form-control" id="requested_by" name="requested_by">
-                        {% for member in members %}
-                        <option value="{{member.username}}">{{member.username}}</option>
-                        {% endfor %}
-                    </select>
-                    <label>Requestor</label>
-            </div>   
-            <div class="row">    
-                <div class="input-field">
-                    <i class="material-icons prefix">phone</i>
-                    <input id="phone" name="phone" type="tel" class="validate">
-                    <label for="icon_telephone">Telephone</label>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-5">
+			<div class="row">
+
+			</div>
+			<div class="row index-text">
+				<div class="col-md-12">
+                <div class="trans">
+					<h4>A Neighbrhood Shopping Rota</h4>
+                
+                    <p class="index-text"> Let's share the toll of shopping at this strange time.
+                    Use the form on the right to submit your shopping list 
+                    and the neighborhood's shoppers will try to get in on the date and deliver it to you</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field">
-                    <i class="material-icons prefix">account_circle</i>
-                    <select id="shop" name="shop">
-                        <option value="" disabled selected>Please select the shop for your purchases</option>
-                        {% for shop in shops %}
-                        <option value="{{shop.shop}}">{{shop.shop}}</option>
-                        {% endfor %}
-                    </select>
-                    <label>Shop</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field">
-                    <i class="material-icons prefix">account_circle</i>
-                    <textarea id="food" name="food" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Please enter the food and the amount you would to order</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input type="text" class="datepicker" id="date" name="date">
-                    <label for="textarea1">Please pick the date for the order</label>
-                </div>
-                <div class="input-field" style="display: none;">
-                       <select id="status" name="status" value="open" style="display: none;">
-                        {% for status in status %}
-                        <option value="{{status.status}}">{{status.status}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-            <div class="row">
+			</div>
+		</div>
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-5">
+            
+                <form action="/insert_requests" method="POST" class="new-requests" name="siteform">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="requested_by">Please select your name</label>
+                            <select class="form-control" id="requested_by" name="requested_by">
+                            <option value="" disabled selected></option>
+                            {% for member in members %}
+                                    <option value="{{member.username}}">{{member.username}}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                    </div>    
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="phone">Telephone</label>
+                            <input class="form-control" type="tel" id="phone" name="phone"/>
+                        </div>
+                    </div> 
+                    <div class="col">   
+                        <div class="form-group">
+                            <label for="requested_by">Please select the shop for your purchases</label>
+                            <select class="form-control" id="shop" name="shop">
+                            <option value="" disabled selected></option>
+                            {% for shop in shops %}
+                                    <option value="{{shop.shop}}">{{shop.shop}}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">    
+                        <div class="form-group">
+                            <label for="foodarea">Please enter your shopping list</label>
+                            <textarea class="form-control" id="food" name="food" rows="4"></textarea>
+                        </div>
+                    </div>    
+                    <div class="col">    
+                        <div class="form-group">
+                            <label class="control-label " for="date">
+                            Preferred Shop By Date
+                            </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar">
+                                        </i>
+                                    </div>
+                                    <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                                </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col">    
+                        <div class="form-group" style="display: none;">
+                            <label for="status">Please select the request status</label>
+                            <select class="form-control" id="status" name="status" value="open">
+                            {% for status in status %}
+                                    <option value="{{status.status}}">{{status.status}}</option>
+                            {% endfor %} 
+                            </select>
+                        </div> 
+                    </div>
+                   <div class="col">
                 <div style="text-align: center;"> 
-                    <button class="btn waves-effect orange darken-3" type="submit" name="action">Submit
-                        <i class="material-icons right">send</i>
-                    </button>
+                    <button  type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>    
             </div>
-        </form>
-    </div>    
-    </div>
+                </form>    
+            </div>
+	</div>
 </div>
 
 {% endblock %}

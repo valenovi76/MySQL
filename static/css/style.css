@@ -1,33 +1,52 @@
-header {
-  padding: 20px 0 20px;
-}
-
-section {
-  padding: 150px 0;
-}
-
-
 body{
     background-image:url('../img/online_shop.jpg') ;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    
+    font-family: 'Roboto', sans-serif;    
 }
 
-main {
-    flex: 1 0 auto;
-  }
-
-.responsive-table{
-    background-color: white;
+header{ 
+    padding: 5px 50px 50px 30px;
 }
 
+footer{
+    padding-bottom: 2rem!important;
+    padding-top: 2rem;
+}
 
-form{background-color: white;
+.page_title{
+margin-top: 20px;
+
+}
+.trans{
+    padding: 60px 40px;
+    background: rgba(255,255,255,0.7);
     border-radius: 10px;
+    margin-top: 40px;
 }
+
+.page-wrapper{
+    padding-top: 150px;
+}
+
+form{
+    padding: 60px 40px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+    margin-top: 40px;
+
+}
+
+label{ 
+    font-weight: 700;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 5px;
+}
+
+.input-group{
+    margin-bottom: 10px;
+    margin-top:10px;
+}
+
+
 
 #request_filter {
   /*background-image: url('/css/searchicon.png'); /* Add a search icon to input */
@@ -37,15 +56,18 @@ form{background-color: white;
   font-size: 16px; /* Increase font-size */
   padding: 12px 20px 12px 40px; /* Add some padding */
   border: 1px solid #ddd; /* Add a grey border */
+  border-radius: 10px;
   margin-bottom: 12px; /* Add some space below the input */
- 
+   
 }
 
 #requeststbl {
   border-collapse: collapse; /* Collapse borders */
   width: 100%; /* Full-width */
   border: 1px solid #ddd; /* Add a grey border */
+  border-radius: 10px;
   font-size: 18px; /* Increase font-size */
+  background-color: white; 
 }
 
 #requeststbl th, #requeststbl td {
@@ -62,3 +84,4 @@ form{background-color: white;
   /* Add a grey background color to the table header and on hover */
   background-color: #f1f1f1;
 }
+

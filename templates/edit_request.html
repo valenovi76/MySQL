@@ -1,16 +1,20 @@
 <!DOCTYPE html> {% extends 'master.html' %} {% block content %}
 
-<div class="container">
+<div class="container-fluid">
+	<div class="row">
+    <div class= "page_title">
+    <h3> Please see below all the open shopping requests</h3>
+    </div>
     <div class="row">
+    <div class="col s3>">
+    </div>
+    <div class="col s6">
         <form action="{{ url_for('update_request', request_id=request._id) }}" method="POST" class="update-requests col s12 m6 offset-m3" name="siteform" >
-           <p>
-           <h6>Please Use the below form to Update your requests</h6>
-           </p>
-            <div class="row">    
-                <div class="input-field">
-                    <i class="material-icons prefix">account_circle</i>
-                    <select id="requested_by" name="requested_by">
-                        <option value="" disabled selected>Please select your name</option>
+            <div class="col">   
+                    <div class="form-group">
+                            <label for="requested_by">Please select your name</label>
+                            <select class="form-control" id="requested_by" name="requested_by">
+                            <option value="" disabled selected></option>
                         {% for member in members %}
                         {% if member.username == request.requested_by %}
                         <option value="{{member.username}}" selected>{{member.username}}</option>
@@ -19,21 +23,19 @@
                         {% endif %}
                         {% endfor %}
                     </select>
-                    <label>Requestor</label>
                 </div>
             </div>    
-            <div class="row">    
-                <div class="input-field">
-                    <i class="material-icons prefix">phone</i>
+            <div class="col">    
+                <div class="form-group">
+                    <label for="phone">Telephone</label>
                     <input id="phone" name="phone" type="tel" class="validate" value="{{request.phone}}">
-                    <label for="icon_telephone">Telephone</label>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field">
-                    <i class="material-icons prefix">account_circle</i>
-                    <select id="shop" name="shop">
-                        <option value="" disabled selected>Please select the shop for your purchases</option>
+            <div class="col">
+                <div class="form-group">
+                <label for="requested_by">Please select the shop for your purchases</label>
+                    <select class="form-control" id="shop" name="shop">
+                        <option value="" disabled selected></option>
                         {% for shop in shops %}
                         {% if shop.shop == request.shop %}
                         <option value="{{shop.shop}}" selected>{{shop.shop}}</option>
@@ -42,24 +44,30 @@
                         {% endif %}
                         {% endfor %}
                     </select>
-                    <label>Shop</label>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field">
-                    <i class="material-icons prefix">account_circle</i>
-                    <textarea id="food" name="food" class="materialize-textarea" value="{{request.food}}"></textarea>
-                    <label for="textarea1">Please enter the food and the amount you would to order</label>
+            <div class="col">
+                <div class="form-group">
+                    <label for="foodarea">Please enter your shopping list</label>
+                    <textarea class="form-control" id="food" name="food"  value="{{request.food}}"></textarea>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input type="text" class="datepicker" id="date" name="date" value="{{request.date}}">
-                    <label for="textarea1">Please pick the date for the order</label>
-                </div>
-                <div class="input-field">
-                       <select id="status" name="status" value="open">
+            <div class="col">
+                <div class="form-group">
+                    <label class="control-label " for="date">Preferred Shop By Date</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar">
+                                </i>
+                            </div>
+                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text" value="{{request.date}}">
+                        </div>
+                </div> 
+            </div>       
+            <div class="col">    
+                        <div class="form-group">
+                        <label for="status">Please select the request status</label>
+                        <select class="form-control" id="status" name="status">  
                         {% for status in status %}
                         {% if status.status == request.status %}
                         <option value="{{status.status}}" selected>{{status.status}}</option>
@@ -67,18 +75,20 @@
                         <option value="{{status.status}}">{{status.status}}</option>
                         {% endif%}
                         {% endfor %}
-                    </select>
-                </div>
+                        </select>
+                        </div>
             </div>
-            <div class="row">
+            <div class="col">
                 <div style="text-align: center;"> 
-                    <button class="btn waves-effect orange darken-3" type="submit" name="action">Submit
-                        <i class="material-icons right">send</i>
-                    </button>
+                    <button  type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>    
             </div>
         </form>
+    </div> 
+    <div class="col s3>">
     </div>
+    </div>
+	</div>
 </div>
 
 {% endblock %}
