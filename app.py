@@ -38,8 +38,8 @@ def requests():
 
 @app.route('/insert_requests', methods=['POST'])
 def insert_requests():
-    request = mongo.db.c_requests
-    requests.insert_one(request.form.to_dict())
+    requests = mongo.db.c_requests
+    requests .insert_one(request.form.to_dict())
     return redirect(url_for('requests'))
 
 
@@ -63,8 +63,8 @@ def edit_request(request_id):
 
 @app.route('/update_request/<request_id>', methods=["POST"])
 def update_request(request_id):
-    request = mongo.db.c_requests
-    request.update({"_id": ObjectId(request_id)},
+    requests = mongo.db.c_requests
+    requests.update({"_id": ObjectId(request_id)},
                    {'requested_by': request.form.get('requested_by'),
                     'phone': request.form.get('phone'),
                     'shop': request.form.get('shop'),
@@ -72,7 +72,13 @@ def update_request(request_id):
                     'food': request.form.get('food'),
                     'status': request.form.get('status')
                     })
-    return redirect(url_for('requests.html'))
+    return redirect(url_for('requests'))
+
+
+@app.route('/delete_request/<request_id>')
+def delete_request(request_id):
+    mongo.db.c_requests.remove({'_id': ObjectId(request_id)})
+    return redirect(url_for('requests'))
 
 
 if __name__ == '__main__':

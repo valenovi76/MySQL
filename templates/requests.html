@@ -15,6 +15,7 @@
                         <tr>
                             <th>Shop By Date</th>
                             <th>Requested_By</th>
+                            <th>Phone</th>
                             <th>Food</th>
                             <th>Shop</th>
                             <th>Status</th>
@@ -29,13 +30,14 @@
                         <tr>
                             <td value="{{request.date}}">{{request.date}}</td>
                             <td value="{{request.requested_ry}}">{{request.requested_by}}</td>
+                            <td value="{{request.phone}}">{{request.phone}}</td>
                             <td value="{{request.food}}">{{request.food}}</td>
                             <td value="{{request.shop}}">{{request.shop}}</td>
                             <td value="{{request.status}}">{{request.status}}</td>
                             <td><a href="{{url_for('edit_request', request_id=request._id)}}" class="btn-floating btn-small waves-effect waves-light orange" >
                                     <i class="material-icons">create</i>
                                 </a>
-                                <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                                <a href="{{url_for('delete_request', request_id=request._id)}}" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
                             
                             </td>
                         </tr>
