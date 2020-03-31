@@ -19,8 +19,8 @@ mongo = PyMongo(app)
 @app.route('/index')
 def index():
     return render_template("index.html",
-                           members=mongo.db.c_members.find())
-
+                           members=mongo.db.c_members.find(),
+                           type=mongo.db.c_member_type.find())
 
 @app.route('/new_requests')
 def new_requests():
