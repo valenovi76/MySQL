@@ -22,6 +22,7 @@ def index():
                            members=mongo.db.c_members.find(),
                            type=mongo.db.c_member_type.find())
 
+
 @app.route('/new_requests')
 def new_requests():
     return render_template("new_requests.html", foods=mongo.db.c_food.find(),

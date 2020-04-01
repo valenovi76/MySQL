@@ -1,94 +1,104 @@
-<!DOCTYPE html> {% extends 'master.html' %} {% block content %}
+{% extends 'master.html' %} {% block content %}
 
-<div class="container-fluid">
-	<div class="row">
+<div class="container-fluid newrequests">
+ <div class="row">
     <div class= "page_title">
-    <h3> Please see below all the open shopping requests</h3>
+    <h3> Please use the below form to enter your shopping request</h3>
     </div>
-    <div class="row">
-    <div class="col s3>">
-    </div>
-    <div class="col s6">
-        <form action="{{ url_for('update_request', request_id=request._id) }}" method="POST" class="update-requests col s12 m6 offset-m3" name="siteform" >
-            <div class="col">   
-                    <div class="form-group">
-                            <label for="requested_by">Please select your name</label>
-                            <select class="form-control" id="requested_by" name="requested_by">
-                            <option value="" disabled selected></option>
-                        {% for member in members %}
-                        {% if member.username == request.requested_by %}
-                        <option value="{{member.username}}" selected>{{member.username}}</option>
-                        {% else %}
-                        <option value="{{member.username}}">{{member.username}}</option>
-                        {% endif %}
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>    
-            <div class="col">    
-                <div class="form-group">
-                    <label for="phone">Telephone</label>
-                    <input id="phone" name="phone" type="tel" class="validate" value="{{request.phone}}">
+	<div class="row">
+		<div class="col-md-5">
+			<div class="row">
+			</div>
+			<div class="row index-text">
+				<div class="col-md-12">
+                <div class="trans">
+                    <p class="index-text"> Using the form is pretty easy.
+                    Enter your name, the shop were we should get your purchases, the shopping list and the date by when you would like
+                    to have the order delivered. If you need to amend the order use the link above</p>
                 </div>
             </div>
-            <div class="col">
-                <div class="form-group">
-                <label for="requested_by">Please select the shop for your purchases</label>
-                    <select class="form-control" id="shop" name="shop">
-                        <option value="" disabled selected></option>
-                        {% for shop in shops %}
-                        {% if shop.shop == request.shop %}
-                        <option value="{{shop.shop}}" selected>{{shop.shop}}</option>
-                        {% else %}
-                        <option value="{{shop.shop}}">{{shop.shop}}</option>
-                        {% endif %}
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-group">
-                    <label for="foodarea">Please enter your shopping list</label>
-                    <textarea class="form-control" id="food" name="food"  value="{{request.food}}"></textarea>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-group">
-                    <label class="control-label " for="date">Preferred Shop By Date</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar">
-                                </i>
+			</div>
+		</div>
+		<div class="col-md-1">
+		</div>
+        <div class="col-md-5">
+            <form action="{{ url_for('update_request', request_id=request._id) }}" method="POST" class="update-requests col s12 m6 offset-m3" name="siteform" >
+                            <div class="row">
+                                <div class="form-group col">
+                                <label for="requested_by">Please select your name</label>
+                                <select class="form-control" id="requested_by" name="requested_by">
+                                <option value="" disabled selected></option>
+                            {% for member in members %}
+                            {% if member.username == request.requested_by %}
+                            <option value="{{member.username}}" selected>{{member.username}}</option>
+                            {% else %}
+                            <option value="{{member.username}}">{{member.username}}</option>
+                            {% endif %}
+                            {% endfor %}
+                                </select>
+                                </div>
+                            
+                                <div class="form-group col"> 
+                                <i class="fa fa-phone"></i>
+                                <label for="phone">Telephone</label>
+                                <input id="phone" name="phone" type="tel" class="validate" value="{{request.phone}}">
+                                </div>
                             </div>
+                            <div class="row">
+                            <div class="form-group col">
+                                <label for="foodarea">Please enter your shopping list</label>
+                                <textarea class="form-control" id="food" name="food"  value="{{request.food}}"></textarea>
+                            </div>
+                            </div>
+
+                            <div class="row">
+                            <div class="form-group col">
+                            <label for="requested_by">Please select the shop for your purchases</label>
+                            <select class="form-control" id="shop" name="shop">
+                            <option value="" disabled selected></option>
+                            {% for shop in shops %}
+                            {% if shop.shop == request.shop %}
+                            <option value="{{shop.shop}}" selected>{{shop.shop}}</option>
+                            {% else %}
+                            <option value="{{shop.shop}}">{{shop.shop}}</option>
+                            {% endif %}
+                            {% endfor %}
+                            </select>
+                            </div>
+                
+                            <div class="form-group col">
+                            <label class="control-label " for="date">Preferred Shop By Date</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar">
+                                    </i>
+                                </div>
                                 <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text" value="{{request.date}}">
-                        </div>
-                </div> 
-            </div>       
-            <div class="col">    
-                        <div class="form-group">
-                        <label for="status">Please select the request status</label>
-                        <select class="form-control" id="status" name="status">  
-                        {% for status in status %}
-                        {% if status.status == request.status %}
-                        <option value="{{status.status}}" selected>{{status.status}}</option>
-                        {% else %}
-                        <option value="{{status.status}}">{{status.status}}</option>
-                        {% endif%}
-                        {% endfor %}
-                        </select>
-                        </div>
-            </div>
-            <div class="col">
-                <div style="text-align: center;"> 
-                    <button  type="submit" class="btn btn-primary btn-lg">Submit</button>
-                </div>    
-            </div>
-        </form>
-    </div> 
-    <div class="col s3>">
+                            </div>
+                            </div> 
+                            </div>
+        
+                            <div class="row">    
+                            <div class="form-group col">
+                            <label for="status">Please select the request status</label>
+                            <select class="form-control" id="status" name="status">  
+                            {% for status in status %}
+                            {% if status.status == request.status %}
+                            <option value="{{status.status}}" selected>{{status.status}}</option>
+                            {% else %}
+                            <option value="{{status.status}}">{{status.status}}</option>
+                            {% endif%}
+                            {% endfor %}
+                            </select>
+                            </div>
+                            <div class="form-group col">
+                            <button  type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </div>    
+                            </div>
+            </form>
+        </div> 
     </div>
-    </div>
-	</div>
+</div>
 </div>
 
 {% endblock %}
