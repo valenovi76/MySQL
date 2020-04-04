@@ -19,13 +19,13 @@ mongo = PyMongo(app)
 @app.route('/index')
 def index():
     return render_template("index.html",
-                           members=mongo.db.c_members.find(),
-                           type=mongo.db.c_member_type.find())
+                           member_types=mongo.db.c_member_type.find())
 
 
 @app.route('/new_requests')
 def new_requests():
-    return render_template("new_requests.html", foods=mongo.db.c_food.find(),
+    return render_template("new_requests.html",
+                           foods=mongo.db.c_food.find(),
                            members=mongo.db.c_members.find(),
                            shops=mongo.db.c_shops.find(),
                            status=mongo.db.c_status.find())
@@ -48,7 +48,7 @@ def insert_requests():
 def insert_login():
     usernames = mongo.db.c_members
     usernames.insert_one(request.form.to_dict())
-    return redirect(url_for('add_new_requests'))
+    return redirect(url_for('new_requests'))
 
 
 @app.route('/edit_request/<request_id>')

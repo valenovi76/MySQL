@@ -2,101 +2,94 @@
 {% extends 'master.html' %}
 {% block content %}
 <div class="container-fluid newrequests">
- <div class="row">
-    <div class= "page_title">
-    <h3> Please use the below form to enter your shopping request</h3>
-    </div>
-	<div class="row">
-		<div class="col-md-5">
-			<div class="row">
-			</div>
-			<div class="row index-text">
-				<div class="col-md-12">
-                <div class="trans">
-                    <p class="index-text"> Using the form is pretty easy.
-                    Enter your name, the shop were we should get your purchases, the shopping list and the date by when you would like
-                    to have the order delivered. If you need to amend the order use the link above</p>
-                </div>
+<div class="row">
+   <div class= "page_title">
+      <h3> Please use the below form to enter your shopping request</h3>
+   </div>
+   <div class="row">
+      <div class="col-md-5">
+         <div class="row">
+         </div>
+         <div class="row index-text">
+            <div class="col-md-12">
+               <div class="trans">
+                  <p class="index-text"> Using the form is pretty easy.
+                     Enter your name, the shop were we should get your purchases, the shopping list and the date by when you would like
+                     to have the order delivered. If you need to amend the order use the link above
+                  </p>
+               </div>
             </div>
-			</div>
-		</div>
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-5">
-<form action="/insert_requests" method="POST" class="new-requests" name="siteform">
-                        <div class="row">
-						
-                            <div class="form-group col">
-                                <label for="requested_by">Please select your name</label>
-                                <select class="form-control" id="requested_by" name="requested_by">
-                                <option value="" disabled selected></option>
-                                {% for member in members %}
-                                        <option value="{{member.username}}">{{member.username}}</option>
-                                {% endfor %}
-                                </select>
-                            </div>
-							
-                            <div class="form-group col">
-								<i class="fa fa-phone"></i>
-                                <label for="phone">Telephone</label>
-                                <input class="form-control" type="tel" id="phone" name="phone"/>
-                            </div>
-							
-                        </div>
-						
-						
-                        <div class="row"> 
-                                <div class="form-group col">
-                                <label for="foodarea">Please enter your shopping list</label>
-                                <textarea class="form-control" id="food" name="food" rows="4"></textarea>
-								</div>
-                        </div>  
-						
-                        <div class="row"> 
-						
-                            <div class="form-group col">
-                                <label for="requested_by">Please select the shop for your purchases</label>
-                                <select class="form-control" id="shop" name="shop">
-                                <option value="" disabled selected></option>
-                                {% for shop in shops %}
-                                        <option value="{{shop.shop}}">{{shop.shop}}</option>
-                                {% endfor %}
-                                </select>
-                            </div>
-
-                            <div class="form-group col">
-                                <label class="control-label " for="date">
-                                Preferred Shop By Date
-                                </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar">
-                                            </i>
-                                        </div>
-                                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
-                                    </div>         
-                            </div> 
-						</div> 
-						
-							<div class="row">
-                           
-								<div class="form-group" style="display: none;">
-									<label for="status">Please select the request status</label>
-									<select class="form-control" id="status" name="status" value="open">
-									{% for status in status %}
-											<option value="{{status.status}}">{{status.status}}</option>
-									{% endfor %} 
-									</select>
-								</div> 
-						</div>
-						<div class="row">
-                    <div class="form-group col">
-                        <div style="text-align: center;"> 
-                            <button  type="submit" class="btn btn btn-secondary btn-lg">Submit</button>
-                        </div>    
-                    </div>
-                    </form>  
-        </div>
-  </div>
- </div>
+         </div>
+      </div>
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-5">
+         <form action="/insert_requests" method="POST" class="new-requests" name="siteform">
+            <div class="form-group row">
+               <div class="form-group col">
+                  <label for="requested_by">Please select your name</label>
+                  <select class="form-control" id="requested_by" name="requested_by">
+                     <option value="" disabled selected></option>
+                     {% for member in members %}
+                     <option value="{{member.username}}">{{member.username}}</option>
+                     {% endfor %}
+                  </select>
+               </div>
+               <div class="form-group col">
+                  <i class="fa fa-phone"></i>
+                  <label for="phone">Telephone</label>
+                  <input class="form-control" type="tel" id="phone" name="phone"/>
+               </div>
+            </div>
+            <div class="form-group row">
+               <div class="form-group col">
+                  <label for="foodarea">Please enter your shopping list</label>
+                  <textarea class="form-control" id="food" name="food" rows="4"></textarea>
+               </div>
+            </div>
+            <div class="form-group row">
+               <div class="form-group col">
+                  <label for="requested_by">Please select the shop for your purchases</label>
+                  <select class="form-control" id="shop" name="shop">
+                     <option value="" disabled selected></option>
+                     {% for shop in shops %}
+                     <option value="{{shop.shop}}">{{shop.shop}}</option>
+                     {% endfor %}
+                  </select>
+               </div>
+               <div class="form-group col">
+                  <label class="control-label " for="date">
+                  Preferred Shop By Date
+                  </label>
+                  <div class="input-group">
+                     <div class="input-group-addon">
+                        <i class="fa fa-calendar">
+                        </i>
+                     </div>
+                     <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                  </div>
+               </div>
+            </div>
+            <div class="form-group row">
+               <div class="form-group" style="display: none;">
+                  <label for="status">Please select the request status</label>
+                  <select class="form-control" id="status" name="status" value="open">
+                     {% for status in status %}
+                     <option value="{{status.status}}">{{status.status}}</option>
+                     {% endfor %} 
+                  </select>
+               </div>
+            </div>
+            <div class="form-group row">
+               <div class="form-group col">
+                  <div style="text-align: center;"> 
+                     <button  type="submit" class="btn btn btn-secondary btn-lg">Submit</button>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>
+</div>
 {% endblock %}

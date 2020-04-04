@@ -1,91 +1,101 @@
-body{
-    background-image:url('../img/cropped_veg.jpg') ;
-    font-family: 'Roboto', sans-serif;    
+body {
+	background-image: url('../img/cropped_veg.jpg');
+	font-family: 'Roboto', sans-serif;
 }
 
-header{ 
-    padding: 5px 50px 50px 30px;
+header {
+	padding: 5px 50px 50px 30px;
 }
 
-footer{
-    padding-bottom: 2rem!important;
-    padding-top: 2rem;
+footer {
+	padding-bottom: 2rem!important;
+	padding-top: 2rem;
 }
 
-.container-fluid{
-    margin-left: 0px 20px 0px 20px!important;
-}
-.page_title{
-margin-top: 20px;
-
-}
-.trans{
-    padding: 60px 40px;
-    background: rgba(255,255,255,0.7);
-    border-radius: 10px;
-    margin-top: 40px;
-    
+.container-fluid {
+	margin-left: 0px 20px 0px 20px!important;
 }
 
-.page-wrapper{
-    padding-top: 150px;
+.page_title {
+	margin-top: 20px;
 }
 
-form{
-    padding: 60px 40px;
-    background: rgba(255,255,255,0.3);
-    border-radius: 10px;
-    margin-top: 40px;
-    margin-bottom: 20px;
+.trans {
+	padding: 60px 40px;
+	background: rgba(255, 255, 255, 0.7);
+	border-radius: 10px;
+	margin-top: 40px;
 }
 
-label{ 
-    font-weight: 700;
-    background-color: rgba(255,255,255,0.7);
-    border-radius: 5px;
+.page-wrapper {
+	padding-top: 150px;
 }
 
-.input-group{
-    margin-bottom: 10px;
-    margin-top:10px;
+form {
+	padding: 60px 40px;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 10px;
+	margin-top: 40px;
+	margin-bottom: 20px;
 }
 
+label {
+	font-weight: 700;
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 5px;
+}
 
+.input-group {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
 
 #request_filter {
-  /*background-image: url('/css/searchicon.png'); /* Add a search icon to input */
-  /*background-position: 10px 12px; /* Position the search icon */
-  /*background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 100%; /* Full-width */
-  font-size: 16px; /* Increase font-size */
-  padding: 12px 20px 12px 40px; /* Add some padding */
-  border: 1px solid #ddd; /* Add a grey border */
-  border-radius: 10px;
-  margin-bottom: 12px; /* Add some space below the input */
-   
+	/*background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+	/*background-position: 10px 12px; /* Position the search icon */
+	/*background-repeat: no-repeat; /* Do not repeat the icon image */
+	width: 100%;
+	/* Full-width */
+	font-size: 16px;
+	/* Increase font-size */
+	padding: 12px 20px 12px 40px;
+	/* Add some padding */
+	border: 1px solid #ddd;
+	/* Add a grey border */
+	border-radius: 10px;
+	margin-bottom: 12px;
+	/* Add some space below the input */
 }
 
 #requeststbl {
-  border-collapse: collapse; /* Collapse borders */
-  width: 100%; /* Full-width */
-  border: 1px solid #ddd; /* Add a grey border */
-  border-radius: 10px;
-  font-size: 18px; /* Increase font-size */
-  background-color: white; 
+	border-collapse: collapse;
+	/* Collapse borders */
+	width: 100%;
+	/* Full-width */
+	border: 1px solid #ddd;
+	/* Add a grey border */
+	border-radius: 10px;
+	font-size: 18px;
+	/* Increase font-size */
+	background-color: white;
 }
 
-#requeststbl th, #requeststbl td {
-  text-align: left; /* Left-align text */
-  padding: 12px; /* Add padding */
+#requeststbl th,
+#requeststbl td {
+	text-align: left;
+	/* Left-align text */
+	padding: 12px;
+	/* Add padding */
 }
 
 #requeststbl tr {
-  /* Add a bottom border to all table rows */
-  border-bottom: 1px solid #ddd;
+	/* Add a bottom border to all table rows */
+	border-bottom: 1px solid #ddd;
 }
 
-#requeststbl tr.header, #requeststbl tr:hover {
-  /* Add a grey background color to the table header and on hover */
-  background-color: #f1f1f1;
+#requeststbl tr.header,
+#requeststbl tr:hover {
+	/* Add a grey background color to the table header and on hover */
+	background-color: #f1f1f1;
 }
 

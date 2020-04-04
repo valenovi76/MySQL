@@ -1,76 +1,57 @@
 <!DOCTYPE html> 
 {% extends 'master.html' %} {% block content %}
-
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-5">
-			<div class="row">
-			</div>
-			<div class="row index-text">
-				<div class="col-md-12">
-                <div class="trans">
-					<h4>A neighbourhood Shopping Rota</h4>
-                    <b class="index-text"> Let's share the toll of shopping during this hard and dangerous time.
-                    Use the form on the right to become a member. Choose between  being an online shopper 
-                    (someone who only places an order and gets it delivered) and neighbourhood shopper (someone who shops for the others and delivers the food)
-                    If you are already a member just go ahead and place your order. 
-                    The neighborhood's shoppers will try to get in on the date and deliver it to you</b>
-                </div>
+   <div class="row">
+      <div class="col-md-5">
+         <div class="row">
+         </div>
+         <div class="row index-text">
+            <div class="col-md-12">
+               <div class="trans">
+                  <h4>A neighbourhood Shopping Rota</h4>
+                  <b class="index-text"> Let's share the toll of shopping during this hard and dangerous time.
+                  Use the form on the right to become a member. Choose between  being an online shopper 
+                  (someone who only places an order and gets it delivered) and neighbourhood shopper (someone who shops for the others and delivers the food)
+                  If you are already a member just go ahead and place your order. 
+                  The neighborhood's shoppers will try to get in on the date and deliver it to you</b>
+               </div>
             </div>
-			</div>
-		</div>
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-5">
-            <form action="{{ url_for('insert_login') }}" method="POST" >
-            <div class="form-group ">
-            <label class="control-label requiredField" for="new_memeber_name">
-            Name and Surname
-            <span class="asteriskField">
-                *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-                <i class="fa ">
-                </i>
+         </div>
+      </div>
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-5">
+         <form action="/insert_login" method="POST" >
+            <div class="form-group row">
+               <div class="form-group col">
+                  <label for="username">Please enter your name and surname</label>
+                  <input id="username" name="username" type="text" class="form-control" required="required"> 
+               </div>
             </div>
-            <input class="form-control" id="username" name="username" type="text" placeholder="Name and Surname"/>
-            <div class="input-group-addon">
+            <div class="form-group row">
+               <div class="form-group col">
+                  <label for="tel">Please enter your phone number</label>
+                  <input id="tel" name="tel" type="text" class="form-control" required="required"> 
+               </div>
             </div>
+            <div class="form-group row">
+               <div class="form-group col">
+                  <label for="member_type">Please select your member type</label>
+                  <select id="member_type" name="member_type" class="custom-select" required="required">
+                     <option value="" disabled selected></option>
+                     {% for member_type in member_types %}
+                     <option value="{{member_type.member_type}}">{{member_type.member_type}}</option>
+                     {% endfor %}
+                  </select>
+               </div>
             </div>
+            <div class="form-group row">
+               <div class="offset-4 col-8">
+                  <button name="submit" type="submit" class="btn btn-secondary btn-lg">Submit</button>
+               </div>
             </div>
-            <div class="form-group ">
-            <label class="control-label requiredField" for="type">
-            Member Type
-            <span class="asteriskField">
-                *
-            </span>
-            </label>
-            <div class="input-group">
-            <div class="input-group-addon">
-            </div>
-            <input class="form-control" id="type" name="type" type="text" placeholder="Select Member Type"/>
-            <div class="input-group-addon">
-            </div>
-            </div>
-            </div>
-            <div class="form-group ">
-            <label class="control-label " for="tel">
-            Telephone #
-            </label>
-            <input class="form-control" id="tel" name="tel" type="tel"/>
-            </div>
-            <div class="form-group">
-            <div>
-
-            <button  type="submit" class="btn btn-primary btn-lg">Submit</button>
-
-            </div>
-            </div>
-            </form>
-        </div>
-	</div>
+         </form>
+      </div>
+   </div>
 </div>
-
 {% endblock %}
