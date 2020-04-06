@@ -1,35 +1,60 @@
 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
 
-Welcome valenovi76,
+# HeadingCovid19 Neighborhood Shopping Rota
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+Our lives have drammatically changed in the last few months.
 
-## Gitpod Reminders
+We have been asked to step up and contribute with our behaviour to the safety of our communities. 
+It’s incumbent on all of us – families, communities, neighbourhoods – to step up and think about what we can do to support people.
+Everyone need to try and avoid large crowds, such as supermarkets, so I thought it would have been a good idea to creat a simple, 
+user friendly website to submit a shopping list, to share the load of shopping thus decreasing the risk of exposure.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## UX
+The user should be able to
 
-`python3 -m http.server`
+ - Submit their shopping list, 
+ - Pick the date by when they would like to have 
+   it delivered
+ - Select the lthe shop where the food should be purchased. 
+ - Update their request or delete it 
+ - Check the requests list and filter it by either date or requestor's name
+ - Email the requests list to their own account to use it while shopping
+ - Mark the request as done
 
-A blue button should appear to click: *Expose*,
+The site is simple and standard in its structure and navigation because the target audience would be of a certain age. It is also fully mobile responsive.
+The data is saved on a Collection database in Mongodb.
 
-Another blue button should appear to click: *Open Browser*.
+Here are the links to the wireframes and the database structure
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: *Expose*,
+## Existing Features
+A live demo of the site can be found [here]
 
-Another blue button should appear to click: *Open Browser*.
+ - **Memeber sign up form** - allows users to add their names and phone numbers to the site database. The main function at this stage is to have a list of names , phone numbers in case further contact is needed and to know who will use the site to have the food delivered ad who instead will take care of the shopping and will deliver the shopping
+ - **Shopping list submit form** - the form allows the user to enter their list, the date by which they would like the request delivered and the shop where to get the food.
+ The form has an hiddent field setting the status of the request to "open" on the Mongo db, the field becomes visible and updatebale in the requests update form.
+ - **All Requests list** - the page presentes a list of all the open requests (which haven't been delivered as of yet) and incorporates an update and delete buttons to access the Update Requests page/form
+ - **Requests Update form** -  the page gives the users the option to review their orders and amend date, food list and shop name
+ - **Data** - The data is stored and provided by a Cloud-hosted MongoDB (covid19_rota_DB) organised in 5 collections:
+c_member_type : to store the valuesfor the member type  dropdown select input field
+c_members : to store the members data entered using the member input form
+c_requests : to store the shopping requests from the users
+c_shops : to store the values for the shops dropdown select input field
+c_status : to store the values for the requests status dropdown select input field
+ 
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+### Features Left to Implement
+I would like to create a proper login form capturing the users' credentials and recognising an existing member.
+I also would like to enable the email option on the requests page, once it has been filtered 
 
-## Updates Since The Instructional Video
+## Technologies Used
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+jquery
+flask
+python
+Boostrap
+MongoDb
+Heroku
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## Testing
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
