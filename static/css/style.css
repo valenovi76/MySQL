@@ -1,5 +1,6 @@
 body {
-	background-image: url('../img/cropped_veg.jpg');
+	background-image: url('../img/bagcropped1.jpg');
+    background-size: cover;
 	font-family: 'Roboto', sans-serif;
 }
 
