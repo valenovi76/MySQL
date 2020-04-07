@@ -1,3 +1,4 @@
+#imports#
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
@@ -6,7 +7,7 @@ from os import path
 if path.exists("env.py"):
     import env
 
-
+#flask app#
 app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["MONGODB_NAME"] = os.environ.get("MONGODB_NAME",
@@ -14,43 +15,43 @@ app.config["MONGODB_NAME"] = os.environ.get("MONGODB_NAME",
 
 mongo = PyMongo(app)
 
-
+#routing#
 @app.route('/')
+#index page#
 @app.route('/index')
 def index():
     return render_template("index.html",
                            member_types=mongo.db.c_member_type.find())
 
-
+#new requests page#
 @app.route('/new_requests')
 def new_requests():
     return render_template("new_requests.html",
-                           foods=mongo.db.c_food.find(),
                            members=mongo.db.c_members.find(),
                            shops=mongo.db.c_shops.find(),
                            status=mongo.db.c_status.find())
 
-
+#requests page to filter current requests#
 @app.route('/requests')
 def requests():
     return render_template("requests.html",
                            requests=mongo.db.c_requests.find())
 
-
+#add data to mongo db collection requests#
 @app.route('/insert_requests', methods=['POST'])
 def insert_requests():
     requests = mongo.db.c_requests
     requests .insert_one(request.form.to_dict())
     return redirect(url_for('requests'))
 
-
+#add data to mongo db collection members#
 @app.route('/insert_login', methods=['POST'])
 def insert_login():
     usernames = mongo.db.c_members
     usernames.insert_one(request.form.to_dict())
     return redirect(url_for('new_requests'))
 
-
+# routing to edit page and getting data from mongo db collection requests#
 @app.route('/edit_request/<request_id>')
 def edit_request(request_id):
     the_request = mongo.db.c_requests.find_one({"_id": ObjectId(request_id)})
@@ -61,7 +62,7 @@ def edit_request(request_id):
                            members=all_members, shops=all_shops,
                            status=all_status)
 
-
+# updating data on mongo db collection requests#
 @app.route('/update_request/<request_id>', methods=["POST"])
 def update_request(request_id):
     requests = mongo.db.c_requests
@@ -75,7 +76,7 @@ def update_request(request_id):
                      })
     return redirect(url_for('requests'))
 
-
+#delete document in request collection on mongo db#
 @app.route('/delete_request/<request_id>')
 def delete_request(request_id):
     mongo.db.c_requests.remove({'_id': ObjectId(request_id)})

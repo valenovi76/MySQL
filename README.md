@@ -9,7 +9,15 @@ It’s incumbent on all of us – families, communities, neighbourhoods – to s
 Everyone need to try and avoid large crowds, such as supermarkets, so I thought it would have been a good idea to creat a simple, 
 user friendly website to submit a shopping list, to share the load of shopping thus decreasing the risk of exposure.
 
+Hosted on GitHub Pages Repository on GitHub
+
 ## UX
+
+Users
+Typical users of this site should be people in quarantine who cannot or whish not to go out shopping and people that are currently able/willing 
+to shop for them.
+
+User Stories
 The user should be able to
 
  - Submit their shopping list, 
@@ -30,6 +38,13 @@ Here are the links to the wireframes and the database structure
 ## Existing Features
 A live demo of the site can be found [here]
 
+Design
+the background is minimalist in its approach to be unobstrusive. The image should remind of grocery shopping.
+the colour palette has been selected using the Extract theme option on https://color.adobe.com/ to aromnize
+with the background picture (credit to Gaelle Marcelle)
+The links on the navbar are quite big to facilitate navigation
+
+Current features:
  - **Memeber sign up form** - allows users to add their names and phone numbers to the site database. The main function at this stage is to have a list of names , phone numbers in case further contact is needed and to know who will use the site to have the food delivered ad who instead will take care of the shopping and will deliver the shopping
  - **Shopping list submit form** - the form allows the user to enter their list, the date by which they would like the request delivered and the shop where to get the food.
  The form has an hiddent field setting the status of the request to "open" on the Mongo db, the field becomes visible and updatebale in the requests update form.

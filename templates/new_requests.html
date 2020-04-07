@@ -7,12 +7,14 @@
       <h3> Please use the below form to enter your shopping request</h3>
    </div>
    <div class="row">
+   <!--container divided in even right and left columns-->
       <div class="col-md-5">
          <div class="row">
          </div>
          <div class="row index-text">
             <div class="col-md-12">
                <div class="trans">
+               <!--div containing of text on page to explain form use-->
                   <p class="index-text"> Using the form is pretty easy.
                      Enter your name, the shop were we should get your purchases, the shopping list and the date by when you would like
                      to have the order delivered. If you need to amend the order use the link above
@@ -24,10 +26,12 @@
       <div class="col-md-1">
       </div>
       <div class="col-md-5">
+      <!--new requests form ,values coming from mongo db via py def new_requests()-->
          <form action="/insert_requests" method="POST" class="new-requests" name="siteform">
             <div class="form-group row">
                <div class="form-group col">
                   <label for="requested_by">Please select your name</label>
+                  <!--select field,mongo.db.c_members.find() -->
                   <select class="form-control" id="requested_by" name="requested_by">
                      <option value="" disabled selected></option>
                      {% for member in members %}
@@ -50,6 +54,7 @@
             <div class="form-group row">
                <div class="form-group col">
                   <label for="requested_by">Please select the shop for your purchases</label>
+                  <!--select field,mongo.db.c_shops.find()-->
                   <select class="form-control" id="shop" name="shop">
                      <option value="" disabled selected></option>
                      {% for shop in shops %}
@@ -58,6 +63,7 @@
                   </select>
                </div>
                <div class="form-group col">
+               <!--Boostrap datepicker, thanks to Chris Youderian, https://formden.com/blog/date-picker-->
                   <label class="control-label " for="date">
                   Preferred Shop By Date
                   </label>
@@ -73,6 +79,7 @@
             <div class="form-group row">
                <div class="form-group" style="display: none;">
                   <label for="status">Please select the request status</label>
+                  <!--select field,mongo.db.c_status.find(), the field is hidden on the form and preopulated as "open"-->
                   <select class="form-control" id="status" name="status" value="open">
                      {% for status in status %}
                      <option value="{{status.status}}">{{status.status}}</option>
@@ -83,6 +90,7 @@
             <div class="form-group row">
                <div class="form-group col">
                   <div style="text-align: center;"> 
+                     <!--Submit button-->
                      <button  type="submit" class="btn btn btn-secondary btn-lg">Submit</button>
                   </div>
                </div>
