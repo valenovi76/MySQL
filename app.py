@@ -37,6 +37,7 @@ def requests():
     return render_template("requests.html",
                            requests=mongo.db.c_requests.find())
 
+
 #add data to mongo db collection requests#
 @app.route('/insert_requests', methods=['POST'])
 def insert_requests():

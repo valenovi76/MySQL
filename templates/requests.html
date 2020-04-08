@@ -10,22 +10,23 @@
 
     <form>
                 <div class="form-row">
-                <div class="form-group col">
-                <!--filters are running using JS code in master.hmtl myFunctiondate() and myFunctionname()-->
-                <!--table filter option 1 by Date-->
-                        <label for="request_filter_date">Filter Requests by Date</label>
-                        <input name="request_filter_date" type="text" id="request_filter_date" onkeyup="myFunctiondate()">
-                          
-                </div> 
-                <div class="form-group col">
-                <!--table filter option 2 by requestor name--> 
-                        <label for="request_filter_date">Filter Requests by Name</label>      
-                        <input name="request_filter_name" type="text" id="request_filter_name" onkeyup="myFunctionname()">
+                    <div class="form-group col">
+                    <!--filters are running using JS code in master.hmtl myFunctiondate() and myFunctionname()-->
+                    <!--table filter option 1 by Date-->
+                            <label for="request_filter_date">Filter Requests by Date</label>
+                            <input name="request_filter_date" type="text" id="request_filter_date" onkeyup="myFunctiondate()">
+                            
+                    </div> 
+                    <div class="form-group col">
+                    <!--table filter option 2 by requestor name--> 
+                            <label for="request_filter_date">Filter Requests by Name</label>      
+                            <input name="request_filter_name" type="text" id="request_filter_name" onkeyup="myFunctionname()">
+                    </div>
+                    <div class="form-group col">
+                    <input class="btn btn-secondary btn-lg" type="reset" value="Reset">  
+                    </div>
                 </div>
-                <div class="form-group col">
-                <input class="btn btn-secondary btn-lg" type="reset" value="Reset">  
-                </div>
-                </div>    
+                <div class="form-row">    
                         <table class="responsive-table" id="requeststbl">
                         <!--table heads-->
                             <thead>
@@ -60,10 +61,11 @@
                             {% endfor %}  
                             </tbody>
                         </table>
-                    </div>
                 </div>
+    
+                
+                
     </form>       
     </div>
 </div>        
 {% endblock %}
-

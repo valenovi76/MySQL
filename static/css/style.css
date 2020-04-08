@@ -1,11 +1,11 @@
 /*navbar style*/
 .navbar{
-    background-color:#BF700F;    
+    background-color:#192022;    
 }
 
 /*body style*/
 body {
-	background-image: url('../img/bagcropped1.jpg');
+	background-image: url('../img/bagcropped4.jpg');
     background-size: cover;
 	font-family: 'Roboto', sans-serif;
 }
@@ -19,7 +19,8 @@ header {
 footer {
 	padding-bottom: 2rem!important;
 	padding-top: 2rem;
-    background-color:#BF700F;
+    background-color:#192022;
+    color:#f1f1f1;
 }
 
 /*container style to override bootstrap style*/
@@ -30,14 +31,16 @@ footer {
 /*page title across site*/
 .page_title {
 	margin-top: 20px;
+    color:#f1f1f1;
 }
 
 /*text on left of pages across site - style*/
 .trans {
 	padding: 60px 40px;
-	background: rgba(#283940, 0.7);
+	background: rgba(110, 140, 151, 0.7);
 	border-radius: 10px;
 	margin-top: 40px;
+    color:#f1f1f1;
 }
 
 .page-wrapper {
@@ -47,8 +50,8 @@ footer {
 
 /*style for forms across the site */
 form {
-	padding: 60px 40px;
-	background: rgba(255, 255, 255, 0.3);
+	padding: 40px 40px;
+	background: rgba(110, 140, 151, 0.7);
 	border-radius: 10px;
 	margin-top: 40px;
 	margin-bottom: 20px;
@@ -59,10 +62,15 @@ form {
 label {
 	font-weight: 700;
     /*make text bolder*/
-	background-color: rgba(255, 255, 255, 0.7);
+	color: rgba(255, 255, 255);
 	border-radius: 5px;
 }
 
+.btn{
+    background-color: #192022;
+    color:rgba(255, 255, 255);
+
+}
 
 .input-group {
 	margin-bottom: 10px;
@@ -92,7 +100,8 @@ label {
 	/* Add a grey border */
 	border-radius: 10px;
 	font-size: 18px;
-	background-color: white;
+    background: rgba(110, 140, 151, 0.7);
+    color:#f1f1f1;
 }
 
 #requeststbl th,
@@ -111,6 +120,6 @@ label {
 #requeststbl tr.header,
 #requeststbl tr:hover {
 	/* Add a grey background color to the table header and on hover */
-	background-color: #f1f1f1;
+	background-color: #192022;
 }
 
