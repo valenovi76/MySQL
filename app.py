@@ -1,4 +1,4 @@
-#imports#
+# imports#
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
@@ -7,7 +7,7 @@ from os import path
 if path.exists("env.py"):
     import env
 
-#flask app#
+# flask app#
 app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["MONGODB_NAME"] = os.environ.get("MONGODB_NAME",
@@ -15,15 +15,15 @@ app.config["MONGODB_NAME"] = os.environ.get("MONGODB_NAME",
 
 mongo = PyMongo(app)
 
-#routing#
+# routing#
 @app.route('/')
-#index page#
+# index page#
 @app.route('/index')
 def index():
     return render_template("index.html",
                            member_types=mongo.db.c_member_type.find())
 
-#new requests page#
+# new requests page#
 @app.route('/new_requests')
 def new_requests():
     return render_template("new_requests.html",
@@ -31,21 +31,21 @@ def new_requests():
                            shops=mongo.db.c_shops.find(),
                            status=mongo.db.c_status.find())
 
-#requests page to filter current requests#
+# requests page to filter current requests#
 @app.route('/requests')
 def requests():
     return render_template("requests.html",
                            requests=mongo.db.c_requests.find())
 
 
-#add data to mongo db collection requests#
+# add data to mongo db collection requests#
 @app.route('/insert_requests', methods=['POST'])
 def insert_requests():
     requests = mongo.db.c_requests
     requests .insert_one(request.form.to_dict())
     return redirect(url_for('requests'))
 
-#add data to mongo db collection members#
+# add data to mongo db collection members#
 @app.route('/insert_login', methods=['POST'])
 def insert_login():
     usernames = mongo.db.c_members
@@ -77,7 +77,7 @@ def update_request(request_id):
                      })
     return redirect(url_for('requests'))
 
-#delete document in request collection on mongo db#
+# delete document in request collection on mongo db#
 @app.route('/delete_request/<request_id>')
 def delete_request(request_id):
     mongo.db.c_requests.remove({'_id': ObjectId(request_id)})
