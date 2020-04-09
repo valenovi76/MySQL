@@ -1,14 +1,42 @@
 /*navbar style*/
 .navbar{
-    background-color:#192022;    
+    background-color:#192022; 
+  
 }
+
+.nav-link{
+        color:#f1f1f1; 
+        font-size: 1.5rem;
+
+}
+
+.nav-link:focus, .nav-link:hover {
+    color:grey;
+    text-decoration: none;
+}
+.fa-1x {
+font-size: 1.5rem;
+}
+.navbar-toggler.toggler-example {
+cursor: pointer;
+color:#f1f1f1;
+}
+.navbar-toggler:hover{
+    color:grey;
+}
+
 
 /*body style*/
 body {
-	background-image: url('../img/bagcropped4.jpg');
+	background-image: url('../img/hands1.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
+    background-color: #464646;
 	font-family: 'Roboto', sans-serif;
 }
+
 
 /*header style to ensure there are no white lines betweeen header and content*/
 header {
@@ -17,8 +45,7 @@ header {
 
 /*footer style to override bootstrap style*/
 footer {
-	padding-bottom: 2rem!important;
-	padding-top: 2rem;
+
     background-color:#192022;
     color:#f1f1f1;
     position: fixed;
@@ -36,7 +63,8 @@ footer {
 /*page title across site*/
 .page_title {
 	margin-top: 20px;
-    color:#f1f1f1;
+    color:#192022;
+    padding: 20px 20px 20px 20px;
 }
 
 /*text on left of pages across site - style*/
@@ -44,13 +72,11 @@ footer {
 	padding: 60px 40px;
 	background: rgba(110, 140, 151, 0.7);
 	border-radius: 10px;
-	margin-top: 40px;
+	margin:20px;
     color:#f1f1f1;
 }
 
-.page-wrapper {
-	padding-top: 150px;
-}
+
 
 
 /*style for forms across the site */
@@ -58,8 +84,7 @@ form {
 	padding: 40px 40px;
 	background: rgba(110, 140, 151, 0.7);
 	border-radius: 10px;
-	margin-top: 40px;
-	margin-bottom: 20px;
+    margin: 20px;
     /*ensure space from bottom of the screen*/
 }
 
@@ -113,14 +138,16 @@ label {
 #requeststbl td {
 	text-align: left;
 	/* Left-align text */
-	padding: 12px;
+	padding: 6px;
 	/* Add padding */
 }
 
 #requeststbl tr {
 	/* Add a bottom border to all table rows */
 	border-bottom: 1px solid #ddd;
+    
 }
+
 
 #requeststbl tr.header,
 #requeststbl tr:hover {
@@ -128,3 +155,58 @@ label {
 	background-color: #192022;
 }
 
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header *
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	 td a { display: block;
+
+     }
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Shop By Date"; }
+	td:nth-of-type(2):before { content: "Requested_By"; }
+	td:nth-of-type(3):before { content: "Phone"; }
+	td:nth-of-type(4):before { content: "Food"; }
+	td:nth-of-type(5):before { content: "Shop"; }
+	td:nth-of-type(6):before { content: "Status"; }
+	td:nth-of-type(7):before { content: "Update/Delete"; }
+}

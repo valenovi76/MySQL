@@ -1,97 +1,97 @@
 <!DOCTYPE html>
 {% extends 'master.html' %} {% block content %}
 <div class="container-fluid newrequests">
-   <div class="row">
-      <div class= "page_title">
-         <h3> Please use the below form to update your shopping request</h3>
-      </div>
-      <div class="row">
-       <!--container divided in even right and left columns-->
-         <div class="col-md-4">
-            <div class="row">
+  <div class="row">
+    <div class= "page_title">
+      <h3> Please use the below form to update your shopping request</h3>
+    </div>
+    <div class="row">
+      <!--container divided in even right and left columns-->
+      <div class="col-md-4">
+        <div class="row">
+        </div>
+        <div class="row index-text">
+          <div class="col-md-12">
+            <!--div containing text on page to explain form use-->
+            <div class="trans">
+              <p class="index-text"> With the form on the right you can update all the choices made so far
+              </p>
             </div>
-            <div class="row index-text">
-               <div class="col-md-12">
-               <!--div containing text on page to explain form use-->
-                  <div class="trans">
-                     <p class="index-text"> With the form on the right you can update all the choices made so far
-                     </p>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-1">
-         </div>
-         <div class="col-md-7">
-         <!--edit requests form ,values coming from mongo db via py def edit_request()-->
-            <form action="{{ url_for('update_request', request_id=request._id) }}" method="POST" class="update-requests col s12 m6 offset-m3" name="siteform" >
-               <div class="form-group row">
-                  <div class="form-group col">
-                     <label for="requested_by">Please select your name</label>
-                     <select class="form-control" id="requested_by" name="requested_by">
-                        <option value="" disabled selected></option>
-                        {% for member in members %}
-                        {% if member.username == request.requested_by %}
-                        <option value="{{member.username}}" selected>{{member.username}}</option>
-                        {% else %}
-                        <option value="{{member.username}}">{{member.username}}</option>
-                        {% endif %}
-                        {% endfor %}
-                     </select>
-                  </div>
-               </div>
-               <div class="form-group row">
-                  <div class="form-group col">
-                     <label for="foodarea">Please enter your shopping list</label>
-                     <textarea class="form-control" id="food" name="food">{{request.food}}</textarea>
-                  </div>
-               </div>
-               <div class="form-group row">
-                  <div class="form-group col">
-                     <label for="requested_by">Please select the shop for your purchases</label>
-                     <select class="form-control" id="shop" name="shop">
-                        <option value="" disabled selected></option>
-                        {% for shop in shops %}
-                        {% if shop.shop == request.shop %}
-                        <option value="{{shop.shop}}" selected>{{shop.shop}}</option>
-                        {% else %}
-                        <option value="{{shop.shop}}">{{shop.shop}}</option>
-                        {% endif %}
-                        {% endfor %}
-                     </select>
-                  </div>
-               </div>
-               <div class="form-group row">
-                  <div class="form-group col">
-                     <label class="control-label " for="date">Shop by Date</label>
-                     <div class="input-group">
-                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="date" value="{{request.date}}">
-                     </div>
-                  </div>
-               </div>
-               <div class="form-group row">
-                  <div class="form-group col">
-                     <label for="status">Please select the request status</label>
-                     <!--field is now visible to mark the request as done if needed-->
-                     <select class="form-control" id="status" name="status">
-                        {% for status in status %}
-                        {% if status.status == request.status %}
-                        <option value="{{status.status}}" selected>{{status.status}}</option>
-                        {% else %}
-                        <option value="{{status.status}}">{{status.status}}</option>
-                        {% endif%}
-                        {% endfor %}
-                     </select>
-                  </div>
-               </div>
-               <div class="form-group row">  
-                  <div class="form-group col">
-                     <button  type="submit" class="btn btn-lg">Submit</button>
-                  </div>
-               </div>
-            </form>
-         </div>
+          </div>
+        </div>
       </div>
-   </div>
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-7">
+        <!--edit requests form ,values coming from mongo db via py def edit_request()-->
+        <form action="{{ url_for('update_request', request_id=request._id) }}" method="POST" class="update-requests col s12 m6 offset-m3" name="siteform" >
+          <div class="form-group row">
+            <div class="form-group col">
+              <label for="requested_by">Please select your name</label>
+              <select class="form-control" id="requested_by" name="requested_by">
+                <option value="" disabled selected></option>
+                {% for member in members %}
+                {% if member.username == request.requested_by %}
+                <option value="{{member.username}}" selected>{{member.username}}</option>
+                {% else %}
+                <option value="{{member.username}}">{{member.username}}</option>
+                {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="form-group col">
+              <label for="foodarea">Please enter your shopping list</label>
+              <textarea class="form-control" id="food" name="food">{{request.food}}</textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="form-group col">
+              <label for="requested_by">Please select the shop for your purchases</label>
+              <select class="form-control" id="shop" name="shop">
+                <option value="" disabled selected></option>
+                {% for shop in shops %}
+                {% if shop.shop == request.shop %}
+                <option value="{{shop.shop}}" selected>{{shop.shop}}</option>
+                {% else %}
+                <option value="{{shop.shop}}">{{shop.shop}}</option>
+                {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="form-group col">
+              <label class="control-label " for="date">Shop by Date</label>
+              <div class="input-group">
+                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" value="{{request.date}}">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="form-group col">
+              <label for="status">Please select the request status</label>
+              <!--field is now visible to mark the request as done if needed-->
+              <select class="form-control" id="status" name="status">
+                {% for status in status %}
+                {% if status.status == request.status %}
+                <option value="{{status.status}}" selected>{{status.status}}</option>
+                {% else %}
+                <option value="{{status.status}}">{{status.status}}</option>
+                {% endif%}
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="form-group col">
+              <button  type="submit" class="btn btn-lg">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

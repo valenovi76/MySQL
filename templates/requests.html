@@ -1,73 +1,65 @@
 <!DOCTYPE html>
 {% extends 'master.html' %}
 {% block content %}
-
 <div class="container">
-    <div class="row">
+  <div class="row">
     <div class= "page_title">
-    <h3> Please see below all the open shopping requests</h3>
+      <h3> Please see below all the open shopping requests</h3>
     </div>
-
     <form>
-                <div class="form-row">
-                    <div class="form-group col">
-                    <!--filters are running using JS code in master.hmtl myFunctiondate() and myFunctionname()-->
-                    <!--table filter option 1 by Date-->
-                            <label for="request_filter_date">Filter Requests by Date</label>
-                            <input name="request_filter_date" type="text" id="request_filter_date" onkeyup="myFunctiondate()">
-                            
-                    </div> 
-                    <div class="form-group col">
-                    <!--table filter option 2 by requestor name--> 
-                            <label for="request_filter_date">Filter Requests by Name</label>      
-                            <input name="request_filter_name" type="text" id="request_filter_name" onkeyup="myFunctionname()">
-                    </div>
-                    <div class="form-group col">
-                    <!--table reset button-->
-                    <input class="btn btn-secondary btn-lg" type="reset" value="Reset" id="reset">  
-                    </div>
-                </div>
-                <div class="form-row">    
-                        <table class="table-responsive" id="requeststbl">
-                        <!--table heads-->
-                            <thead>
-                            <tr>
-                                <th>Shop By Date</th>
-                                <th>Requested_By</th>
-                                <th>Phone</th>
-                                <th>Food</th>
-                                <th>Shop</th>
-                                <th>Status</th>
-                                <th>Update/Delete</th>
-                            </tr>
-                            </thead>
-                        
-                            <!--table content looping through requests collection on mongo db to display documents as table rows-->
-                            {% for request in requests %}
-                                {% if request.status == "open" %}
-                            <tbody>
-                            <tr>
-                                <td value="{{request.date}}">{{request.date}}</td>
-                                <td value="{{request.requested_ry}}">{{request.requested_by}}</td>
-                                <td value="{{request.phone}}">{{request.phone}}</td>
-                                <td value="{{request.food}}">{{request.food}}</td>
-                                <td value="{{request.shop}}">{{request.shop}}</td>
-                                <td value="{{request.status}}">{{request.status}}</td>
-                                <!--update and delete bottons in table linking to edit page or triggering delete py code-->
-                                <td><a href="{{url_for('edit_request', request_id=request._id)}}" class="btn btn-success btn-lg">Update</a>
-                                    <a href="{{url_for('delete_request', request_id=request._id)}}" class="btn btn-danger btn-circle btn-lg">Delete</a>
-                                </td>
-                            </tr>
-                            {% endif %} 
-                            {% endfor %}  
-                            </tbody>
-                        </table>
-                </div>
-    
-                
-                
-    </form>       
-    </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <!--filters are running using JS code in master.hmtl myFunctiondate() and myFunctionname()-->
+          <!--table filter option 1 by Date-->
+          <label for="request_filter_date">Filter Requests by Date</label>
+          <input name="request_filter_date" type="text" id="request_filter_date" onkeyup="myFunctiondate()">
+        </div>
+        <div class="form-group col">
+          <!--table filter option 2 by requestor name--> 
+          <label for="request_filter_date">Filter Requests by Name</label>      
+          <input name="request_filter_name" type="text" id="request_filter_name" onkeyup="myFunctionname()">
+        </div>
+        <div class="form-group col">
+          <!--table reset button-->
+          <input class="btn btn-lg" type="reset" value="Reset" id="reset">  
+        </div>
+      </div>
+      <div class="form-row">
+        <table class="table-responsive" id="requeststbl">
+          <!--table heads-->
+          <thead>
+            <tr>
+              <th>Shop By Date</th>
+              <th>Requested_By</th>
+              <th>Phone</th>
+              <th>Food</th>
+              <th>Shop</th>
+              <th>Status</th>
+              <th>Update/Delete</th>
+            </tr>
+          </thead>
+          <!--table content looping through requests collection on mongo db to display documents as table rows-->
+          {% for request in requests %}
+          {% if request.status == "open" %}
+          <tbody>
+            <tr>
+              <td value="{{request.date}}">{{request.date}}</td>
+              <td value="{{request.requested_ry}}">{{request.requested_by}}</td>
+              <td value="{{request.phone}}">{{request.phone}}</td>
+              <td value="{{request.food}}">{{request.food}}</td>
+              <td value="{{request.shop}}">{{request.shop}}</td>
+              <td value="{{request.status}}">{{request.status}}</td>
+              <!--update and delete bottons in table linking to edit page or triggering delete py code-->
+              <td><a href="{{url_for('edit_request', request_id=request._id)}}" class="btn btn-success btn-lg">Update</a>
+                <a href="{{url_for('delete_request', request_id=request._id)}}" class="btn btn-danger btn-circle btn-lg">Delete</a>
+              </td>
+            </tr>
+            {% endif %} 
+            {% endfor %}  
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
 </div>
-      
 {% endblock %}
