@@ -25,17 +25,18 @@
         </div>
       </div>
       <div class="form-row">
-        <table class="table-responsive" id="requeststbl">
+        <table id="requeststbl">
           <!--table heads-->
           <thead>
             <tr>
-              <th>Shop By Date</th>
-              <th>Requested_By</th>
+              <th>Shop By</th>
+              <th>Requestor</th>
               <th>Phone</th>
               <th>Food</th>
               <th>Shop</th>
               <th>Status</th>
-              <th>Update/Delete</th>
+              <th>Update</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <!--table content looping through requests collection on mongo db to display documents as table rows-->
@@ -50,9 +51,8 @@
               <td value="{{request.shop}}">{{request.shop}}</td>
               <td value="{{request.status}}">{{request.status}}</td>
               <!--update and delete bottons in table linking to edit page or triggering delete py code-->
-              <td><a href="{{url_for('edit_request', request_id=request._id)}}" class="btn btn-success btn-lg">Update</a>
-                <a href="{{url_for('delete_request', request_id=request._id)}}" class="btn btn-danger btn-circle btn-lg">Delete</a>
-              </td>
+              <td><a href="{{url_for('edit_request', request_id=request._id)}}" class="btn btn-success btn-lg">Update</a></td>
+              <td><a href="{{url_for('delete_request', request_id=request._id)}}" class="btn btn-danger btn-lg">Delete</a></td>
             </tr>
             {% endif %} 
             {% endfor %}  

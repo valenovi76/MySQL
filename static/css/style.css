@@ -97,7 +97,7 @@ label {
 }
 
 .btn{
-    background-color: #192022;
+    background-color: #26261D;
     color:rgba(255, 255, 255);
 
 }
@@ -134,7 +134,9 @@ label {
     color:#f1f1f1;
 }
 
-#requeststbl th,
+#requeststbl th{
+   text-align: center; 
+}
 #requeststbl td {
 	text-align: left;
 	/* Left-align text */
@@ -208,5 +210,6 @@ only screen and (max-width: 760px),
 	td:nth-of-type(4):before { content: "Food"; }
 	td:nth-of-type(5):before { content: "Shop"; }
 	td:nth-of-type(6):before { content: "Status"; }
-	td:nth-of-type(7):before { content: "Update/Delete"; }
+	td:nth-of-type(7):before { content: "Update"; }
+    td:nth-of-type(7):before { content: "Delete"; }
 }

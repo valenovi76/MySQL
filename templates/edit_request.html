@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 {% extends 'master.html' %} {% block content %}
-<div class="container-fluid newrequests">
+<div class="container-fluid">
   <div class="row">
     <div class= "page_title">
       <h3> Please use the below form to update your shopping request</h3>
     </div>
     <div class="row">
       <!--container divided in even right and left columns-->
-      <div class="col-md-4">
+      <div class="col-md-5">
         <div class="row">
         </div>
         <div class="row index-text">
@@ -22,9 +22,9 @@
       </div>
       <div class="col-md-1">
       </div>
-      <div class="col-md-7">
+      <div class="col-md-5">
         <!--edit requests form ,values coming from mongo db via py def edit_request()-->
-        <form action="{{ url_for('update_request', request_id=request._id) }}" method="POST" class="update-requests col s12 m6 offset-m3" name="siteform" >
+        <form action="{{ url_for('update_request', request_id=request._id) }}" method="POST" class="update-requests" name="siteform" >
           <div class="form-group row">
             <div class="form-group col">
               <label for="requested_by">Please select your name</label>
