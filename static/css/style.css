@@ -21,6 +21,11 @@ footer {
 	padding-top: 2rem;
     background-color:#192022;
     color:#f1f1f1;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
 /*container style to override bootstrap style*/

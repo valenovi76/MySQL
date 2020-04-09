@@ -23,11 +23,12 @@
                             <input name="request_filter_name" type="text" id="request_filter_name" onkeyup="myFunctionname()">
                     </div>
                     <div class="form-group col">
-                    <input class="btn btn-secondary btn-lg" type="reset" value="Reset">  
+                    <!--table reset button-->
+                    <input class="btn btn-secondary btn-lg" type="reset" value="Reset" id="reset">  
                     </div>
                 </div>
                 <div class="form-row">    
-                        <table class="responsive-table" id="requeststbl">
+                        <table class="table-responsive" id="requeststbl">
                         <!--table heads-->
                             <thead>
                             <tr>
@@ -67,5 +68,6 @@
                 
     </form>       
     </div>
-</div>        
+</div>
+      
 {% endblock %}

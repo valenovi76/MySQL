@@ -29,7 +29,7 @@
                <div class="form-group col">
                   <label for="requested_by">Please select your name</label>
                   <!--select field,mongo.db.c_members.find() -->
-                  <select class="form-control" id="requested_by" name="requested_by">
+                  <select class="form-control" id="requested_by" name="requested_by" required>
                      <option value="" disabled selected></option>
                      {% for member in members %}
                      <option value="{{member.username}}">{{member.username}}</option>
@@ -40,14 +40,14 @@
             <div class="form-group row">
                <div class="form-group col">
                   <label for="foodarea">Please enter your shopping list</label>
-                  <textarea class="form-control" id="food" name="food" rows="4"></textarea>
+                  <textarea class="form-control" id="food" name="food" rows="4" required></textarea>
                </div>
             </div>
             <div class="form-group row">
                <div class="form-group col">
                   <label for="requested_by">Please select the shop for your purchases</label>
                   <!--select field,mongo.db.c_shops.find()-->
-                  <select class="form-control" id="shop" name="shop">
+                  <select class="form-control" id="shop" name="shop" required>
                      <option value="" disabled selected></option>
                      {% for shop in shops %}
                      <option value="{{shop.shop}}">{{shop.shop}}</option>
@@ -62,7 +62,7 @@
                   Preferred Shop By Date
                   </label>
                   <div class="input-group">
-                     <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                     <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="date" required/>
                   </div>
                </div>
             </div>
