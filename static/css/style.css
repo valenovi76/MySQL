@@ -1,11 +1,11 @@
 /*navbar style*/
 .navbar{
-    background-color:#192022; 
+    background-color:#011826; 
 }
 
 .nav-link{
         color:#f1f1f1; 
-        font-size: 1.5rem;
+        font-size: 1.33rem;
 }
 
 .nav-link:focus, .nav-link:hover {
@@ -39,7 +39,9 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+i{ font-size:1.33em;
 
+}
 /*header style to ensure there are no white lines betweeen header and content*/
 header {
 	padding: 5px 50px 50px 30px;
@@ -48,7 +50,7 @@ header {
 /*footer style to override bootstrap style*/
 footer {
 
-    background-color:#192022;
+    background-color:#011826;
     color:#f1f1f1;
     position: fixed;
     left: 0;
@@ -65,17 +67,16 @@ footer {
 /*page title across site*/
 .page_title {
 	margin-top: 20px;
-    color:#192022;
+    color:#023859;
     padding: 20px 20px 20px 20px;
 }
 
 /*text on left of pages across site - style*/
 .trans {
 	padding: 60px 40px;
-	background: rgba(110, 140, 151, 0.7);
 	border-radius: 10px;
 	margin:20px;
-    color:#f1f1f1;
+    color:#023859;
 }
 
 
@@ -84,7 +85,7 @@ footer {
 /*style for forms across the site */
 form {
 	padding: 40px 40px;
-	background: rgba(110, 140, 151, 0.7);
+	background:#023859;
 	border-radius: 10px;
     margin: 20px;
     /*ensure space from bottom of the screen*/
@@ -134,7 +135,7 @@ label {
 	/* Add a grey border */
 	border-radius: 10px;
 	font-size: 10px;
-    background: rgba(110, 140, 151, 0.7);
+    background: #006080;
     color:#f1f1f1;
     overflow-y: hidden;
 }
