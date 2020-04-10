@@ -1,6 +1,4 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
-
-Covid19 Neighborhood Shopping Rota
+## Covid19 Neighborhood Shopping Rota
 
 Our lives have drammatically changed in the last few months.
 
@@ -30,12 +28,13 @@ Here are the links to the wireframes and the database structure
 
 ## Design
 
-A live demo of the site can be found [here]
+![enter image description here](https://github.com/valenovi76/Neighborhood_Shopping_Rota/blob/ce0fa1f223470b8ac2f32c0a4923352751a8e9e0/static/img/responsive_site.JPG)
 
-Design the background is minimalist in its approach to be unobstrusive. The image should remind of grocery shopping. the colour palette has been selected using the Extract theme option on  [https://color.adobe.com/](https://color.adobe.com/)  to armonize with the background picture (credit to Gaelle Marcelle) The links on the navbar are quite big to facilitate navigation
+
+**Design** 
+The background is minimalist in its approach to be unobstrusive. The image represnts cooperation. The colour palette has been selected using the Extract theme option on  [https://color.adobe.com/](https://color.adobe.com/)  to armonize with the background picture (credit to Kelly Sikkema [Unsplash -Hands](https://unsplash.com/s/photos/hands%3E)) The links on the navbar are quite big to facilitate navigation.
 
 ## Features
-### Planned Features
 
 ### Current features:
 
@@ -43,11 +42,17 @@ Design the background is minimalist in its approach to be unobstrusive. The imag
 -   **Shopping list submit form**  - the form allows the user to enter their list, the date by which they would like the request delivered and the shop where to get the food. The form has an hiddent field setting the status of the request to "open" on the Mongo db, the field becomes visible and updatebale in the requests update form.
 -   **All Requests list**  - the page presentes a list of all the open requests (which haven't been delivered as of yet) and incorporates an update and delete buttons to access the Update Requests page/form
 -   **Requests Update form**  - the page gives the users the option to review their orders and amend date, food list and shop name
--   **Data**  - The data is stored and provided by a Cloud-hosted MongoDB (covid19_rota_DB) organised in 5 collections: c_member_type : to store the valuesfor the member type dropdown select input field c_members : to store the members data entered using the member input form c_requests : to store the shopping requests from the users c_shops : to store the values for the shops dropdown select input field c_status : to store the values for the requests status dropdown select input field
-
+-   **Data**  - The data is stored and provided by a Cloud-hosted MongoDB (covid19_rota_DB) organised in 5 collections: 
+- c_member_type : to store the valuesfor the member type dropdown select input field 
+- c_members : to store the members data entered using the member input form 
+- c_requests : to store the shopping requests from the users 
+- c_shops : to store the values for the shops dropdown select input field 
+- c_status : to store the values for the requests status dropdown select input field
+Please see below the tables structure
 ### Features Left to Implement
 
-I would like to create a proper login form capturing the users' credentials and recognising an existing member. I also would like to enable the email option on the requests page, once it has been filtered
+I would like to create a proper login form, capturing the users' credentials and recognising an existing member. 
+I also would like to create an email service on the Requests page to send the filtered table to an address.
 
 ## Technologies Used
 
@@ -75,10 +80,11 @@ I would like to create a proper login form capturing the users' credentials and 
 
 ## Deployment
 
-The project is hosted on  [GitHub Pages](https://pattern-projects.github.io/oireachtas-ifd-project/)
+The project is hosted on  [GitHub Pages](https://pattern-projects.github.io/oireachtas-ifd-project/), the data is stored and processed on [MongoDB](https://cloud.mongodb.com/v2/5e626aa576cec5275ce0c8e8#clusters)
 
 The process involved:
 
+**Git**
 -   Host a git repository on GitHub. Explained  [here](https://help.github.com/en/articles/create-a-repo).
 -   The root folder contains README.md and index.html files
 -   On GitHub repository settings page move to GitHub Pages section
@@ -86,28 +92,54 @@ The process involved:
 -   Provided link will be your projects home (index) page.
 
 To deploy your own version of the website:
-
 -   Have git installed
 -   Visit the repository
 -   Click 'Clone or download' and copy the code for http
 -   Open your chosen IDE (Cloud9, VS Code, etc.)
 -   Open a terminal in your root directory
 -   Type 'git clone ' followed by the code taken from github repository
-    -   `git clone https://github.com/Pattern-Projects/oireachtas-ifd-project.git`
+    -   `git clone  https://github.com/valenovi76/Neighborhood_Shopping_Rota `
 -   When this completes you have your own version of the website
-    -   Feel free to make any changes to it
--   The website can be run by opening one of the HTML files within a web browser
--   Visit the link provided
--   Your website with any made changes will appear
--   Saved changes to the website will appear here after refreshing the page
+The site stores and processes its data on MongoDB.
+You will need to
 
-The benefits of hosting your website on GitHub pages is that any pushed changes to your project will automatically update the website. Development branches can be created and merged to the master when complete.
+**MONGODB**
 
-It may take a moment for changes to appear on the hosted website.
+Create a db on MONGO DB
+Find various directions on how to create a db [here](https://docs.mongodb.com/manual/tutorial/getting-started/)
+The database name should be "Covid19_rota_DB".
+The collections and their structure should be as per above diagram
 
+**Heroku**
 
-## Testing
+This site is deployed on Heroku. You will need to 
+1.  Create a new app app with the name covid19-shop-rota.
+2.  Linked the covid19-shop-rota app to its Github repository.
+3.  Verify that the project has an up to date Procfile and requirements.txt
+4.  Push the project to the Heroku remote.
+6.  Set the IP to 0.0.0.0 and the PORT to 5000 in the Heroku config vars.
+7.  Set the MONGO_URI environmental variable in the Heroku config vars.
+8.  Restart all dynos.
+9.  Open the app on Heroku and check to ensure that it's working correctly.
 
+## [](https://github.com/valenovi76/Neighborhood_Shopping_Rota#testing)Testing
 
+** Testing Tools**
 
+-   [W3C CSS validation](https://jigsaw.w3.org/css-validator/)
+    
+    -   To check the the validity of the CSS code.
+-   [W3C Markup Validation](https://validator.w3.org/)
+    
+    -   To check the the validity of the HTML code.
 
+**User Testing:**
+
+Manual tests were carried out and the testing process was as follows:
+**Homepage**
+**New request Page**
+**Update/Delete Page**
+
+**Issues Found & Fixes Implemented**
+
+##Credits
