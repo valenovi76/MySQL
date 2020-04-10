@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 {% extends 'master.html' %}
 {% block content %}
-<div class="container-fluid newrequests">
+<div class="container-fluid">
   <div class="row">
     <div class= "page_title">
       <h3> New Shopping Requests</h3>
     </div>
     <div class="row">
       <!--container divided in even right and left columns-->
-      <div class="col-md-5">
+      <div class="col-md">
         <div class="row">
         </div>
         <div class="row index-text">
@@ -23,9 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-1">
-      </div>
-      <div class="col-md-5">
+      <div class="col-md">
         <!--new requests form ,values coming from mongo db via py def new_requests()-->
         <form action="/insert_requests" method="POST" class="new-requests" name="siteform">
           <div class="form-group row">
