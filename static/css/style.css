@@ -61,7 +61,8 @@ footer {
 
 /*container style to override bootstrap style*/
 .container-fluid {
-	margin-left: 0px 20px 0px 20px!important;
+	margin-left: 20px!important;
+    margin-right: 20px!important;
 }
 
 /*page title across site*/
