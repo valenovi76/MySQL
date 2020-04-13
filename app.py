@@ -71,7 +71,7 @@ def update_request(request_id):
                     {'requested_by': request.form.get('requested_by'),
                     'phone': request.form.get('phone'),
                      'shop': request.form.get('shop'),
-                     'shopping_date': request.form.get('shopping_date'),
+                     'date': request.form.get('date'),
                      'food': request.form.get('food'),
                      'status': request.form.get('status')
                      })

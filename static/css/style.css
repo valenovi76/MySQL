@@ -13,17 +13,21 @@
     text-decoration: none;
 }
 
-.fa-1x {
-font-size: 1.5rem;
-}
-
-.navbar-toggler.toggler-example {
+.navbar-toggler{
 cursor: pointer;
 color:#f1f1f1;
 }
 
+.navbar-toggler-icon{
+    color:white;
+
+}
 .navbar-toggler:hover{
     color:grey;
+}
+
+.fa-1x {
+font-size: 1.5rem;
 }
 
 .col-md{
