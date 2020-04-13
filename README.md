@@ -135,6 +135,9 @@ This site is deployed on Heroku. You will need to
     
     -   To check the validity of the HTML code.
 
+- To check the quality of the JS code
+[JSLint](https://jslint.com/)
+
 **User Testing:**
 
 Manual tests were carried out and the testing process was as follows:
