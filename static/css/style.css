@@ -1,11 +1,12 @@
 /*navbar style*/
 .navbar{
-    background-color:#011826; 
+    background-color:#011826!important; 
 }
 
 .nav-link{
         color:#f1f1f1; 
         font-size: 1.33rem;
+        background-color:#011826!important;
 }
 
 .nav-link:focus, .nav-link:hover {
@@ -106,12 +107,15 @@ label {
 }
 
 .btn{
-    background-color: #26261D;
+    background-color: grey;
     color:rgba(255, 255, 255);
     margin:auto;
 
 }
 
+#update-btn{
+    background-color: green;
+}
 .input-group {
 	margin-bottom: 10px;
 	margin-top: 10px;

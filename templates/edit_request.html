@@ -14,7 +14,9 @@
           <div class="col-md-12">
             <!--div containing text on page to explain form use-->
             <div class="trans">
-              <p class="index-text"> With the form on the right you can update all the choices made so far
+              <p class="index-text"> With the form on the right you can update all the choices made so far.
+                Amend the date, the shopping list or the shop where you want us to shop.
+                If you are a shopper update the request status to "Closed" to mark the fact that the request has been delivered"
               </p>
             </div>
           </div>
@@ -86,7 +88,7 @@
           </div>
           <div class="form-group row">
             <div class="form-group col">
-              <button  type="submit" class="btn btn-lg">Update</button>
+              <button  type="submit" class="btn btn-lg" id="update-btn">Update</button>
               <a href="{{url_for('delete_request', request_id=request._id)}}" class="btn btn-danger btn-lg">Delete</a>
             </div>
           </div>
