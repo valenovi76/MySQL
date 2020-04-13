@@ -14,9 +14,9 @@ Hosted on GitHub Pages Repository on GitHub
 **User Stories**
 The user should be able to
 
--   Submit their shopping list,
+-   Submit their shopping list
 -   Pick the date by when they would like to have it delivered
--   Select the shop where the food should be purchased.
+-   Select the shop where the food should be purchased
 -   Update their request or delete it
 -   Check the requests list and filter it by either date or requestor's name
 -   Email the requests list to their own account to use it while shopping
@@ -154,14 +154,14 @@ Verify that new members form functions correctly
 New requests page loads both when navbar link is used or when the new member form is filled in and the submit button is clicked
 The following tests have been performed on the form
 
- 7. Try to submit the form as empty to verify error message appears
- 8. Try to submit the form with empty fields, in turn, to ensure error message appears
- 9. verify that the new member added in the previous form does now appear as a value in the Requestor drop down and that only one value can be selected
- 10. verify that the shopping lists text area does contain several lines of text
- 11. verify that the shops list works and that only one value can be selected
- 12. verify that the calendar pops up correctly and that past dates are greyed out
- 13. verify that no free text can be entered in the calendar picker field
- 14. verify that the submit button uploads the new shopping request to the correct collection on mongo and that it loads the correct page
+ 1. Try to submit the form as empty to verify error message appears
+ 2. Try to submit the form with empty fields, in turn, to ensure error message appears
+ 3. verify that the new member added in the previous form does now appear as a value in the Requestor drop down and that only one value can be selected
+ 4. verify that the shopping lists text area does contain several lines of text
+ 5. verify that the shops list works and that only one value can be selected
+ 6. verify that the calendar pops up correctly and that past dates are greyed out
+ 7. verify that no free text can be entered in the calendar picker field
+ 8. verify that the submit button uploads the new shopping request to the correct collection on mongo and that it loads the correct page
  
  
 **View Requests Page**
@@ -194,6 +194,6 @@ I decided to have the actual shopping as free text. this made the management eas
 
 ## Credits
 
-My Mentor Seun Owonikoko for the great advice and helping me fixing some issues along the way.
-https://www.w3schools.com/howto/howto_js_filter_table.asp for how to creae a JS filter on a table.
+- My Mentor Seun Owonikoko for the great advice and helping me fixing some issues along the way.
+- https://www.w3schools.com/howto/howto_js_filter_table.asp for how to creae a JS filter on a table.
 Chris Youderian, https://formden.com/blog/date-picker

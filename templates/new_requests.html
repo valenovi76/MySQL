@@ -2,95 +2,96 @@
 {% extends 'master.html' %}
 {% block content %}
 <div class="container">
-  <div class="row-main">
-    <div class= "page_title">
-      <h3> New Shopping Requests</h3>
-    </div>
-    <div class="row">
-      <!--container divided in even right and left columns-->
-      <div class="col-md">
+    <div class="row-main">
+        <div class= "page_title">
+            <h3> New Shopping Requests</h3>
+        </div>
         <div class="row">
+            <!--container divided in even right and left columns-->
+            <div class="col-md">
+                <div class="row">
+                </div>
+                <div class="row index-text">
+                    <div class="col-md-12">
+                        <div class="trans">
+                            <!--div containing of text on page to explain form use-->
+                            <p class="index-text"> Using the form is pretty easy.
+                                Enter your name, the shop were we should get your purchases, the shopping list and the date by when you would like
+                                to have the order delivered.<br>
+                                Once you are done submit the request<br> 
+                                If you need to amend the order use the link above "Check/Update Shopping Requests".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <!--new requests form ,values coming from mongo db via py def new_requests()-->
+                <form action="/insert_requests" method="POST" class="new-requests" name="siteform">
+                    <!--select field,mongo.db.c_members.find() -->
+                    <div class="form-group row">
+                        <div class="form-group col">
+                            <label for="requested_by"><span><i class="far fa-user-circle"></i></span> Please select your name</label>
+                            <select class="form-control" id="requested_by" name="requested_by" required>
+                                <option value="" disabled selected> </option>
+                                {% for member in members %}
+                                <option value="{{member.username}}">{{member.username}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <!--shopping list-->
+                    <div class="form-group row">
+                        <div class="form-group col">
+                            <label for="food"><span><i class="fas fa-utensils"></i></span> Please enter your shopping list</label>
+                            <textarea class="form-control" id="food" name="food" rows="4" required></textarea>
+                        </div>
+                    </div>
+                    <!--select field,mongo.db.c_shops.find()-->
+                    <div class="form-group row">
+                        <div class="form-group col">
+                            <label for="requested_by"><span><i class="fas fa-shopping-cart"></i></span> Please select the shop for your purchases</label>
+                            <select class="form-control" id="shop" name="shop" required>
+                                <option value="" disabled selected> </option>
+                                {% for shop in shops %}
+                                <option value="{{shop.shop}}">{{shop.shop}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <!--Boostrap datepicker, thanks to Chris Youderian, https://formden.com/blog/date-picker-->
+                    <div class="form-group row">
+                        <div class="form-group col" >
+                            <label class="control-label " for="date"><span><i class="fas fa-calendar-alt"></i></span>
+                            Preferred Shop By Date
+                            </label>
+                            <div class="input-group" id="datetimepicker1">
+                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY"  required/>
+                            </div>
+                        </div>
+                    </div>
+                    <!--select field,mongo.db.c_status.find(), the field is hidden on the form and preopulated as "open"-->
+                    <div class="form-group row" style="display:none;">
+                        <div class="form-group" >
+                            <label for="status">Please select the request status</label>
+                            <select class="form-control" id="status" name="status"  >
+                                {% for status in status %}
+                                <option value="{{status.status}}">{{status.status}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <!--Submit button-->
+                    <div class="form-group row">
+                        <div class="form-group col">
+                            <div style="text-align: center;">
+                                <button  type="submit" class="btn">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="row index-text">
-          <div class="col-md-12">
-            <div class="trans">
-              <!--div containing of text on page to explain form use-->
-              <p class="index-text"> Using the form is pretty easy.
-                Enter your name, the shop were we should get your purchases, the shopping list and the date by when you would like
-                to have the order delivered.<br>
-                Once you are done submit the request<br> 
-                If you need to amend the order use the link above "Check/Update Shopping Requests".
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md">
-        <!--new requests form ,values coming from mongo db via py def new_requests()-->
-        <form action="/insert_requests" method="POST" class="new-requests" name="siteform">
-          <div class="form-group row">
-            <div class="form-group col">
-              <label for="requested_by"><span><i class="far fa-user-circle"></i></span> Please select your name</label>
-              <!--select field,mongo.db.c_members.find() -->
-              <select class="form-control" id="requested_by" name="requested_by" required>
-                <option value="" disabled selected> </option>
-                {% for member in members %}
-                <option value="{{member.username}}">{{member.username}}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="form-group col">
-              <label for="food"><span><i class="fas fa-utensils"></i></span> Please enter your shopping list</label>
-              <textarea class="form-control" id="food" name="food" rows="4" required></textarea>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="form-group col">
-              <label for="requested_by"><span><i class="fas fa-shopping-cart"></i></span> Please select the shop for your purchases</label>
-              <!--select field,mongo.db.c_shops.find()-->
-              <select class="form-control" id="shop" name="shop" required>
-                <option value="" disabled selected> </option>
-                {% for shop in shops %}
-                <option value="{{shop.shop}}">{{shop.shop}}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="form-group col" >
-              <!--Boostrap datepicker, thanks to Chris Youderian, https://formden.com/blog/date-picker-->
-              <label class="control-label " for="date"><span><i class="fas fa-calendar-alt"></i></span>
-              Preferred Shop By Date
-              </label>
-              <div class="input-group" id="datetimepicker1">
-                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY"  required/>
-              </div>
-            </div>
-          </div>
-          <div class="form-group row" style="display:none;">
-            <div class="form-group" >
-              <label for="status">Please select the request status</label>
-              <!--select field,mongo.db.c_status.find(), the field is hidden on the form and preopulated as "open"-->
-              <select class="form-control" id="status" name="status"  >
-                {% for status in status %}
-                <option value="{{status.status}}">{{status.status}}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="form-group col">
-              <div style="text-align: center;">
-                <!--Submit button-->
-                <button  type="submit" class="btn">Submit</button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
     </div>
-  </div>
 </div>
 {% endblock %}

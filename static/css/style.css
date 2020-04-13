@@ -23,6 +23,7 @@ color:#f1f1f1;
     color:white;
 
 }
+
 .navbar-toggler:hover{
     color:grey;
 }
@@ -31,9 +32,6 @@ color:#f1f1f1;
 font-size: 1.5rem;
 }
 
-.col-md{
-    margin-bottom: 40px;
-}
 
 /*body style*/
 body {
@@ -47,10 +45,17 @@ body {
 i{ font-size:1.33em;
 
 }
+
+.col-md{
+    margin-bottom: 40px;
+}
+
+
 /*header style to ensure there are no white lines betweeen header and content*/
 header {
 	padding: 5px 50px 50px 30px;
 }
+
 
 /*footer style to override bootstrap style*/
 footer {
@@ -72,6 +77,7 @@ footer {
     padding: 20px 20px 20px 20px;
 }
 
+
 /*text on left of pages across site - style*/
 .trans {
 	padding: 60px 40px;
@@ -79,8 +85,6 @@ footer {
 	margin:20px;
     color:#023859;
 }
-
-
 
 
 /*style for forms across the site */
@@ -115,6 +119,7 @@ label {
 	margin-bottom: 10px;
 	margin-top: 10px;
 }
+
 
 /*style for requests table*/
 #request_filter {
@@ -160,7 +165,6 @@ label {
 	border-bottom: 1px solid #ddd;
     
 }
-
 
 #requeststbl tr.header,
 #requeststbl tr:hover {
