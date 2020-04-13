@@ -192,7 +192,7 @@ I decided to have a fixed table with the most common foods and their category. I
 The list displayed on the form was too long and I never managed to convert the multiple lines selection in different documents on the mongo collection.
 I decided to have the actual shopping as free text. this made the management easier, and the form displayed on smaller screens user friendly.
 
-##Credits
+## Credits
 
 My Mentor Seun Owonikoko for the great advice and helping me fixing some issues along the way.
 https://www.w3schools.com/howto/howto_js_filter_table.asp for how to creae a JS filter on a table.
