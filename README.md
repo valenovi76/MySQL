@@ -28,7 +28,7 @@ Here are the links to the wireframes and below you can see the database structur
 
 ## Design
 
-![enter image description here](https://github.com/valenovi76/Neighborhood_Shopping_Rota/blob/ce0fa1f223470b8ac2f32c0a4923352751a8e9e0/static/img/responsive_site.JPG)
+![site](static/img/covid19_schema.JPG)
 
 
 **Design** 
@@ -49,7 +49,7 @@ The background is very simple to be unobtrusive. The colour palette has been sel
 - c_shops: to store the values for the shops dropdown select input field 
 - c_status: to store the values for the requests status dropdown select input field
 Please see below the structure of the tables
-
+![site](static/img/responsive_site.JPG)
 ### Features Left to Implement
 
 I would like to create a proper login form, capturing the users' credentials and recognising an existing member. 
